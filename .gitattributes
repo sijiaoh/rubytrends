@@ -1,7 +1,7 @@
-# These settings are for Ruby On Rails project
-#
-#
-# Define a dummy ours merge strategy with:
-#
-# $ git config --global merge.ours.driver true
-schema.rb merge=ours diff=ruby
+# See https://git-scm.com/docs/gitattributes for more about git attribute files.
+
+# Mark the database schema as having been generated.
+db/schema.rb linguist-generated
+
+# Mark any vendored files as having been vendored.
+vendor/* linguist-vendored
