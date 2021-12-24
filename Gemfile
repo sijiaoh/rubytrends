@@ -60,7 +60,7 @@ group :development, :test do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
 
-  gem 'bullet'
+  gem "bullet"
 end
 
 group :development do
