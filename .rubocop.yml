@@ -1,0 +1,9 @@
+inherit_from: .rubocop_todo.yml
+require:
+  - rubocop-performance
+  - rubocop-minitest
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
