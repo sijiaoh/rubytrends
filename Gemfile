@@ -62,6 +62,8 @@ group :development, :test do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
 
+  gem "rails_best_practices", require: false
+
   gem "bullet"
 end
 
