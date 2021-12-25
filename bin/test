@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eu
+
+bundle exec rubocop
+bundle exec rails_best_practices .
+./bin/rails test
