@@ -4,4 +4,5 @@ set -eu
 
 bundle exec rubocop
 bundle exec rails_best_practices .
+bundle exec brakeman --quiet --no-pager --no-summary
 ./bin/rails test
