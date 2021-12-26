@@ -1,5 +1,5 @@
 module Users
-  class OmniauthCallbacksController < ApplicationController
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def google_oauth2 # rubocop:disable Metrics/AbcSize
       @user = User.from_omniauth(request.env["omniauth.auth"])
 
