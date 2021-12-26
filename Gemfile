@@ -73,6 +73,7 @@ group :development, :test do
   gem "rails_best_practices", require: false
 
   gem "bullet"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -92,6 +93,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 
-  gem "factory_bot_rails"
   gem "faker"
 end
