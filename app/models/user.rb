@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :social_profiles, dependent: :destroy
 
   def self.from_omniauth(access_token)
-    data = access_token.info
-    User.where(email: data["email"]).first
+    social_profile = SocialProfile.find_by provider: access_token.provider, uid: access_token.uid
+    social_profile&.user
   end
 end
