@@ -16,3 +16,6 @@ Metrics/BlockLength:
   Exclude:
     - config/**/*.rb
     - test/**/*.rb
+
+Style/Documentation:
+  Enabled: false
