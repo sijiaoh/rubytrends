@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_26_074526) do
+ActiveRecord::Schema.define(version: 2021_12_26_093104) do
+
+  create_table "social_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.string "email", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["provider", "uid"], name: "index_social_profiles_on_provider_and_uid", unique: true
+    t.index ["user_id", "provider"], name: "index_social_profiles_on_user_id_and_provider", unique: true
+    t.index ["user_id"], name: "index_social_profiles_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "social_profiles", "users"
 end
