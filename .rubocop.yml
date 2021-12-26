@@ -19,7 +19,3 @@ Metrics/BlockLength:
 
 Style/Documentation:
   Enabled: false
-
-Layout/LineLength:
-  Exclude:
-    - config/initializers/devise.rb
