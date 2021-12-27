@@ -1,4 +1,8 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        terms_of_service: "利用規約"
   users:
-    form:
-      terms_of_service: 利用規約
+    new:
+      title: "ユーザー登録"
