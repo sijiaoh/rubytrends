@@ -8,7 +8,7 @@ module Users
         sign_in_and_redirect user, event: :authentication
       else
         # Removing extra as it can overflow some session stores
-        session["devise.google_data"] = request.env["omniauth.auth"].except("extra")
+        session["devise.omniauth_data"] = request.env["omniauth.auth"].except("extra")
         redirect_to new_user_path, alert: user&.errors&.full_messages&.join("\n")
       end
     end

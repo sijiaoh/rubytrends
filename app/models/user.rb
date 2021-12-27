@@ -13,4 +13,14 @@ class User < ApplicationRecord
     social_profile = SocialProfile.find_by provider: access_token.provider, uid: access_token.uid
     social_profile&.user
   end
+
+  def self.create_with_social_profile(user_params, omniauth_data)
+    user = User.new(user_params)
+    user.social_profiles.new(
+      provider: omniauth_data["provider"],
+      uid: omniauth_data["uid"],
+      email: omniauth_data["info"]["email"]
+    )
+    user
+  end
 end

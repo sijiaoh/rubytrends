@@ -10,10 +10,16 @@ class UsersTest < ApplicationSystemTestCase
 
     assert_difference("User.count") do
       click_on I18n.t("helpers.submit.create")
-      assert_current_path /#{user_path("*")}/
+      assert_no_current_path new_user_path
     end
 
     user = User.first
+    google = OmniAuth.config.mock_auth[:google_oauth2]
+
+    assert_equal user.social_profiles.first.provider, google[:provider]
+    assert_equal user.social_profiles.first.uid, google[:uid]
+    assert_equal user.social_profiles.first.email, google[:info][:email]
+
     assert_current_path user_path(user)
   end
 end
