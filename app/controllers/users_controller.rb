@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   def create
     omniauth_data = session["devise.omniauth_data"]
+    raise "devise.omniauth_data not found." unless omniauth_data
+
     @user = User.create_with_social_profile(user_params, omniauth_data)
 
     if @user.save
