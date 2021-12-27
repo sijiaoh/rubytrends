@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_26_093104) do
+ActiveRecord::Schema.define(version: 2021_12_27_090500) do
 
   create_table "social_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "provider", null: false
+    t.integer "provider", null: false
     t.string "uid", null: false
     t.string "email", null: false
     t.datetime "created_at", precision: 6, null: false
