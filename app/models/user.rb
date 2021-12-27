@@ -5,6 +5,8 @@ class User < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
+  validates :terms_of_service, acceptance: true
+
   has_many :social_profiles, dependent: :destroy
 
   def self.from_omniauth(access_token)
