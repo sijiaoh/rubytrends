@@ -8,4 +8,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   include FactoryBot::Syntax::Methods
+
+  OmniAuth.config.test_mode = true
+  google = Faker::Omniauth.unique.google
+  OmniAuth.config.add_mock(google[:provider], google)
 end
