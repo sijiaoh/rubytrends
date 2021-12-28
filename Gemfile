@@ -67,12 +67,14 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
 
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
 
   gem "bullet"
   gem "factory_bot_rails"
+  gem "rspec-rails"
 end
 
 group :development do

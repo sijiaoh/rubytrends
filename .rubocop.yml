@@ -1,6 +1,7 @@
 inherit_from: .rubocop_todo.yml
 require:
   - rubocop-performance
+  - rubocop-rspec
   - rubocop-rails
 
 AllCops:
@@ -14,7 +15,7 @@ Style/StringLiterals:
 Metrics/BlockLength:
   Exclude:
     - config/**/*.rb
-    - test/**/*.rb
+    - spec/**/*.rb
 
 Style/Documentation:
   Enabled: false
