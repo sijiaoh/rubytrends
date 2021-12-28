@@ -33,5 +33,11 @@ module Ellie
 
     config.i18n.available_locales = :ja
     config.i18n.default_locale = :ja
+
+    config.generators do |g|
+      g.routing_specs false
+      g.view_specs false
+      g.request_specs false
+    end
   end
 end
