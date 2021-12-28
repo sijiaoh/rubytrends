@@ -19,6 +19,17 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe ".from_omniauth" do
+    subject!(:user) { described_class.build_with_social_profile({}, omniauth_data).tap(&:save) }
+
+    let(:omniauth_data) { Faker::Omniauth.google.with_indifferent_access }
+    let(:access_token) { ActiveSupport::InheritableOptions.new omniauth_data }
+
+    it "returns correct user" do
+      expect(described_class.from_omniauth(access_token)).to eq user
+    end
+  end
+
   describe ".build_with_social_profile" do
     subject(:user) { described_class.build_with_social_profile({}, omniauth_data) }
 
