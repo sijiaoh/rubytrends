@@ -3,7 +3,9 @@ require "application_system_test_case"
 class UsersTest < ApplicationSystemTestCase
   test "sign up" do
     visit "/"
-    click_on "Sign in with Google"
+    click_on I18n.t("sign_in.index.title")
+    assert_current_path sign_in_path
+    click_on I18n.t("sign_in.index.with_google")
 
     assert_current_path new_user_path
     check User.human_attribute_name(:terms_of_service)

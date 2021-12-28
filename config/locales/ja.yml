@@ -3,6 +3,13 @@ ja:
     attributes:
       user:
         terms_of_service: "利用規約"
+  home:
+    index:
+      title: "Ellie"
+  sign_in:
+    index:
+      title: "登録 / ログイン"
+      with_google: "Googleアカウント"
   users:
     new:
       title: "ユーザー登録"
