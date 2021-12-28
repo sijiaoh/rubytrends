@@ -1,7 +1,6 @@
 inherit_from: .rubocop_todo.yml
 require:
   - rubocop-performance
-  - rubocop-minitest
   - rubocop-rails
 
 AllCops:
@@ -19,7 +18,3 @@ Metrics/BlockLength:
 
 Style/Documentation:
   Enabled: false
-
-Minitest/MultipleAssertions:
-  Exclude:
-    - test/system/**/*.rb

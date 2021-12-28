@@ -65,7 +65,6 @@ group :development, :test do
   gem "mysql_in_docker", require: false
 
   gem "rubocop", require: false
-  gem "rubocop-minitest", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
 
@@ -88,10 +87,5 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
-
   gem "faker"
 end
