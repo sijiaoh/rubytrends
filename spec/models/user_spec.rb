@@ -19,8 +19,8 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe ".create_with_social_profile" do
-    subject(:user) { described_class.create_with_social_profile({ terms_of_service: "1" }, omniauth_data) }
+  describe ".build_with_social_profile" do
+    subject(:user) { described_class.build_with_social_profile({}, omniauth_data) }
 
     let(:omniauth_data) { Faker::Omniauth.google.with_indifferent_access }
 

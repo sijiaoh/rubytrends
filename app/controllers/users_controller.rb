@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create_with_social_profile(user_params, @omniauth_data)
+    @user = User.build_with_social_profile(user_params, @omniauth_data)
 
     if @user.save
       redirect_to user_url(@user), notice: "User was successfully created."
