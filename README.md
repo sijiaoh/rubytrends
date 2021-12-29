@@ -5,20 +5,20 @@ application up and running.
 
 Things you may want to cover:
 
-- Ruby version
+- Ruby version  
   See `.ruby-version`
 
-- Database creation
+- Database creation  
   `rails db:start` to create mysql in docker.
 
-- Database initialization
+- Database initialization  
   `rails db:migrate`
 
-- How to run the test suite
+- How to run the test suite  
   `./bin/test`
 
-- Deployment instructions
+- Deployment instructions  
   TODO
 
-- Notes
+- Notes  
   As the system test does not seem to support the turbo_method option, button_to is used for requests other than GET.
