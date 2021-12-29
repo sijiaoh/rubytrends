@@ -1,5 +1,5 @@
 <header>
   <% if user %>
-    <%= button_to t("sign_out"), sign_out_path, method: :delete %>
+    <%= link_to t("sign_out"), sign_out_path, data: { turbo_method: :delete } %>
   <% end %>
 </header>
