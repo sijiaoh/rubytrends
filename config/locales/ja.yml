@@ -6,8 +6,8 @@ ja:
   home:
     index:
       title: "Ellie"
-  sign_in:
-    index:
+  session:
+    new:
       title: "登録 / ログイン"
       with_google: "Googleアカウント"
   users:
