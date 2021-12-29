@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "sign up", type: :system do
+RSpec.describe "authentication", type: :system do
   it "sign up" do
     visit "/"
     click_on I18n.t("session.new.title")
@@ -21,6 +21,17 @@ RSpec.describe "sign up", type: :system do
     expect(social_profile.uid).to eq google[:uid]
     expect(social_profile.email).to eq google[:info][:email]
 
-    expect(page).to have_link I18n.t("sign_out")
+    expect(page).to have_button I18n.t("sign_out")
+  end
+
+  it "sign out" do
+    user = create :user
+    sign_in user
+
+    visit root_path
+    expect(page).to have_button I18n.t("sign_out")
+
+    click_on I18n.t("sign_out")
+    expect(page).not_to have_button I18n.t("sign_out")
   end
 end

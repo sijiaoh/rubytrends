@@ -62,13 +62,14 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.before :all, type: :system do
-    driven_by :selenium, using: :headless_chrome
-  end
-
   config.include FactoryBot::Syntax::Methods
 
   OmniAuth.config.test_mode = true
   google = Faker::Omniauth.unique.google
   OmniAuth.config.add_mock(google[:provider], google)
+
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.before :all, type: :system do
+    driven_by :selenium, using: :headless_chrome
+  end
 end
