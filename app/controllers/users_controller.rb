@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.build_with_social_profile(user_params, @omniauth_data)
 
     if @user.save
-      redirect_to user_url(@user), notice: "User was successfully created."
+      sign_in_and_redirect @user, event: :authentication
     else
       render :new, status: :unprocessable_entity
     end
