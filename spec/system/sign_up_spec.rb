@@ -21,6 +21,6 @@ RSpec.describe "sign up", type: :system do
     expect(social_profile.uid).to eq google[:uid]
     expect(social_profile.email).to eq google[:info][:email]
 
-    expect(page).to have_current_path user_path(user)
+    expect(page).to have_button I18n.t("sign_out")
   end
 end

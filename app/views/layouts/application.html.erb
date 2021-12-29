@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= render "layouts/header", user: current_user %>
     <main class="container mx-auto">
       <%= yield %>
     </main>

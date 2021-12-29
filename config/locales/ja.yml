@@ -3,6 +3,7 @@ ja:
     attributes:
       user:
         terms_of_service: "利用規約"
+
   home:
     index:
       title: "Ellie"
@@ -13,3 +14,5 @@ ja:
   users:
     new:
       title: "ユーザー登録"
+
+  sign_out: サインアウト
