@@ -24,6 +24,17 @@ RSpec.describe "authentication", type: :system do
     expect(page).to have_button I18n.t("sign_out")
   end
 
+  it "sign in" do
+    google = OmniAuth.config.mock_auth[:google_oauth2]
+    user = User.build_with_social_profile({}, google)
+    user.save!
+
+    visit sign_in_path
+    click_on I18n.t("session.new.with_google")
+    expect(page).to have_current_path(root_path)
+    expect(page).to have_button I18n.t("sign_out")
+  end
+
   it "sign out" do
     user = create :user
     sign_in user
