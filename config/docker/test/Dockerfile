@@ -6,7 +6,8 @@ RUN apt update -qq \
 WORKDIR /app/
 
 COPY Gemfile* /app/
-RUN bundle install --without=development --jobs=4 \
+RUN bundle config set --local without development \
+  && bundle install --jobs=4 \
   && bundle clean --force
 
 COPY . /app/
