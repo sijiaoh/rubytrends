@@ -2,6 +2,7 @@
 
 set -eu
 
+./bin/rails db:create
 bundle exec rubocop --format quiet
 bundle exec rails_best_practices --silent .
 bundle exec brakeman --quiet --no-pager --no-summary
