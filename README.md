@@ -42,6 +42,6 @@ Update.
 
 ```
 git remote add ellie https://github.com/sijiaoh/ellie.git
-git fetch ellie main
+git fetch ellie
 git merge ellie/main
 ```
