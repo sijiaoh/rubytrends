@@ -5,6 +5,8 @@ task :rename_project, [:name] => :environment do |_task, args|
   replace = proc do |method|
     paths = `git grep --files-with-matches #{current_name.send(method)}`.split("\n")
     paths.each do |path|
+      next if File.basename(path) == "README.md"
+
       file = File.read path
       file.gsub! current_name.send(method), new_name.send(method)
       File.write path, file
