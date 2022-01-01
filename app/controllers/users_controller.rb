@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :set_user, only: %i[show]
   before_action :set_omniauth_data, only: %i[new create]
 
