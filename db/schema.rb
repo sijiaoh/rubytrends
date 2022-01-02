@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_02_172757) do
+ActiveRecord::Schema.define(version: 2022_01_02_174724) do
+
+  create_table "daily_summaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "ranking_total_count", null: false
+    t.bigint "ranking_daily_count", null: false
+    t.date "date", null: false
+    t.bigint "rubygem_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["rubygem_id"], name: "index_daily_summaries_on_rubygem_id"
+  end
 
   create_table "rubygems", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -35,5 +45,6 @@ ActiveRecord::Schema.define(version: 2022_01_02_172757) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "daily_summaries", "rubygems"
   add_foreign_key "social_profiles", "users"
 end
