@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_02_192315) do
+ActiveRecord::Schema.define(version: 2022_01_02_193800) do
 
   create_table "daily_summaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "total_downloads", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_01_02_192315) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "last_fetch_date", null: false
+    t.index ["name"], name: "index_rubygems_on_name", unique: true
   end
 
   create_table "social_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
