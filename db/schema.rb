@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_02_174724) do
+ActiveRecord::Schema.define(version: 2022_01_02_185205) do
 
   create_table "daily_summaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "ranking_total_count", null: false
-    t.bigint "ranking_daily_count", null: false
+    t.bigint "total_downloads", null: false
+    t.bigint "daily_downloads", null: false
     t.date "date", null: false
     t.bigint "rubygem_id", null: false
     t.datetime "created_at", precision: 6, null: false
