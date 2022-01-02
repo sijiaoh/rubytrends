@@ -16,7 +16,7 @@ data = [
 ]
 
 data.each do |datum|
-  rubygem = Rubygem.create! name: datum[:gemname]
+  rubygem = Rubygem.create! name: datum[:gemname], last_fetch_date: Time.zone.today
 
   total_downloads = 0
   datum[:existence_days].times do |count|
