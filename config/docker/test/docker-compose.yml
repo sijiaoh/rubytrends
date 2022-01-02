@@ -1,18 +1,18 @@
 version: "3.8"
 services:
   db:
-    container_name: ellie_test_db
+    container_name: gemtrends_test_db
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: password
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1
   selenium:
-    container_name: ellie_test_selenium
+    container_name: gemtrends_test_selenium
     image: selenium/standalone-chrome:latest
   app:
-    container_name: ellie_test
-    image: ellie_test
+    container_name: gemtrends_test
+    image: gemtrends_test
     build:
       context: ../../..
       dockerfile: ./config/docker/test/Dockerfile
