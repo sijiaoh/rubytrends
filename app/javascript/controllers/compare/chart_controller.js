@@ -18,7 +18,7 @@ export default class extends Controller {
     const datasets = this.dataValue.map(({ name, summaries }, index) => ({
       label: name,
       data: summaries.map(({ date, count }) => ({ x: date, y: count })),
-      tension: 0.4,
+      tension: 0.5,
       backgroundColor: `#${seq[index]}`,
       borderColor: `#${seq[index]}`,
       hoverRadius: 6,

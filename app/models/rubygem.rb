@@ -14,7 +14,8 @@ class Rubygem < ApplicationRecord
   end
 
   def daily_downloads_data
-    summaries = daily_summaries.order(date: :desc).filter.with_index do |_, index|
+    summaries = daily_summaries.where("date > ?", Time.zone.today.years_ago(1)).order(date: :desc).to_a
+    summaries.filter!.with_index do |_, index|
       (index % 7).zero?
     end
     summaries.map! do |summary|
