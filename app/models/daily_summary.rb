@@ -12,6 +12,20 @@ class DailySummary < ApplicationRecord
     end
   end
 
+  def self.daily_to_weekly_summary_data(daily_summaries)
+    weekly_summaries = daily_summaries.each_with_object([]).with_index do |(summary, arr), index|
+      if (index % 7).zero?
+        arr << { date: summary.date, count: summary.daily_downloads }
+      else
+        arr.last[:count] += summary.daily_downloads
+      end
+    end
+
+    # Last data may be less than 7 days, so deleted.
+    weekly_summaries.pop
+    weekly_summaries.reverse
+  end
+
   def self.calc_daily_downloads(datum, prev_summary)
     first_summary_daily_downloads = 0
     if prev_summary.blank?

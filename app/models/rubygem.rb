@@ -13,16 +13,11 @@ class Rubygem < ApplicationRecord
     end
   end
 
-  def daily_downloads_data
-    summaries = daily_summaries.where("date > ?", Time.zone.today.years_ago(1)).order(date: :desc).to_a
-    summaries.filter!.with_index do |_, index|
-      (index % 7).zero?
-    end
-    summaries.map! do |summary|
-      { date: summary.date, count: summary.daily_downloads }
-    end
-    summaries.reverse!
-    { name: name, summaries: summaries }
+  def weekly_downloads_data
+    since = Time.zone.today.years_ago(1)
+    daily_summaries = self.daily_summaries.where("date > ?", since).order(date: :desc)
+    weekly_summary_data = DailySummary.daily_to_weekly_summary_data daily_summaries
+    { name: name, summaries: weekly_summary_data }
   end
 
   private
