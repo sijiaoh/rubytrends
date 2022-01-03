@@ -4,10 +4,7 @@ RSpec.describe DailySummary, type: :model do
   describe ".build_from_source_data" do
     let(:rubygem) { create :rubygem }
 
-    let :source_data do
-      file = File.read "spec/data/mysql_in_docker.json"
-      JSON.parse file
-    end
+    include_context "with fake resource data"
 
     context "without exists data" do
       it "returns full records" do
