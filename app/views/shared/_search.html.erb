@@ -1,0 +1,8 @@
+<form data-controller="search"
+  data-action="search#submit"
+  data-search-path-value="<%= compare_path query: "" %>">
+  <input data-search-target="input" type="text" value="<%= gemnames.join " " %>">
+  <button>
+    <%= t ".search" %>
+  </button>
+</form>

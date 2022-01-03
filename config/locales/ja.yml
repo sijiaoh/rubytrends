@@ -4,6 +4,10 @@ ja:
       user:
         terms_of_service: "利用規約"
 
+  shared:
+    search:
+      search: "検索"
+
   home:
     index:
       title: "Gemtrends"

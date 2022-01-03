@@ -1,5 +1,4 @@
 <div>
   <h1 class="font-bold text-4xl"><%= t ".title" %></h1>
-
-  <%= link_to t("session.new.title"), sign_in_path, class: "button-primary" %>
+  <%= render "shared/search", gemnames: [] %>
 </div>
