@@ -1,8 +1,9 @@
 <div>
   <h1 class="font-bold text-4xl">Compare#index</h1>
   <div>
-    <% @rubygems.each do |rubygem| %>
-      <%= rubygem.name %>
-    <% end %>
+    <div data-controller="compare--chart"
+      data-compare--chart-data-value="<%= @daily_downloads_data.to_json %>">
+      <canvas data-compare--chart-target="chart"></canvas>
+    </div>
   </div>
 </div>

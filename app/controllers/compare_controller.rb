@@ -4,6 +4,7 @@ class CompareController < ApplicationController
 
   def index
     @rubygems.each(&:fetch_if_need!)
+    @daily_downloads_data = @rubygems.map(&:daily_downloads_data)
   end
 
   private
