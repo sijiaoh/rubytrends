@@ -2,8 +2,7 @@ require "rails_helper"
 
 RSpec.describe "authentication", type: :system do
   it "sign up" do
-    visit "/"
-    click_on I18n.t("session.new.title")
+    visit sign_in_path
     expect(page).to have_current_path sign_in_path
     click_on I18n.t("session.new.with_google")
     expect(page).to have_current_path sign_up_path
