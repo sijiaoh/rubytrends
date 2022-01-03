@@ -7,8 +7,17 @@ class DailySummary < ApplicationRecord
             end
     prev_summary = existing_last_summary
     source_data[0...index].reverse.map do |datum|
-      daily_downloads = prev_summary.blank? ? 0 : datum["total_downloads"] - prev_summary.total_downloads
+      daily_downloads = calc_daily_downloads datum, prev_summary
       prev_summary = build_from_source_datum datum, daily_downloads, rubygem
+    end
+  end
+
+  def self.calc_daily_downloads(datum, prev_summary)
+    first_summary_daily_downloads = 0
+    if prev_summary.blank?
+      first_summary_daily_downloads
+    else
+      datum["total_downloads"] - prev_summary.total_downloads
     end
   end
 

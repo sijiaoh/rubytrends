@@ -10,7 +10,7 @@ export default class extends Controller {
 
   connect() {
     const datesArray = this.dataValue.map(({ summaries }) =>
-      summaries.map(({ date }) => date).reverse()
+      summaries.map(({ date }) => date)
     );
     const labels = datesArray.sort((a, b) => b.length - a.length)[0];
 

@@ -7,11 +7,27 @@ RSpec.describe DailySummary, type: :model do
     include_context "with fake resource data"
 
     context "without exists data" do
+      let(:daily_summaries) { described_class.build_from_source_data source_data, nil, rubygem }
+
       it "returns full records" do
-        daily_summaries = described_class.build_from_source_data source_data, nil, rubygem
         expect do
           described_class.import! daily_summaries
         end.to change(described_class, :count).by(source_data.length)
+      end
+
+      def calc_daily_downloads(daily_summaries, index)
+        daily_summary = daily_summaries[index]
+        if index > 0
+          daily_summary.total_downloads - daily_summaries[index - 1].total_downloads
+        else
+          0
+        end
+      end
+
+      it "correctlies calculate daily_downloads" do
+        daily_summaries.each.with_index do |daily_summary, index|
+          expect(daily_summary.daily_downloads).to eq calc_daily_downloads(daily_summaries, index)
+        end
       end
     end
 

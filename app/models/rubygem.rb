@@ -14,9 +14,13 @@ class Rubygem < ApplicationRecord
   end
 
   def daily_downloads_data
-    summaries = daily_summaries.order(:date).map do |summary|
+    summaries = daily_summaries.order(date: :desc).filter.with_index do |_, index|
+      (index % 7).zero?
+    end
+    summaries.map! do |summary|
       { date: summary.date, count: summary.daily_downloads }
     end
+    summaries.reverse!
     { name: name, summaries: summaries }
   end
 
