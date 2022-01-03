@@ -1,9 +1,12 @@
 <div>
-  <h1 class="font-bold text-4xl">Compare#index</h1>
+  <h1 class="title"><%= @gemnames.join(" vs ") %></h1>
+
   <%= render "shared/search", gemnames: @gemnames %>
-  <div>
+
+  <div class="mt-8">
     <div data-controller="compare--chart"
       data-compare--chart-data-value="<%= @daily_downloads_data.to_json %>">
+
       <canvas data-compare--chart-target="chart"></canvas>
     </div>
   </div>

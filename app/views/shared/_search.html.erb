@@ -1,8 +1,16 @@
-<form data-controller="search"
+<form class="flex flex-col items-center"
+  data-controller="search"
   data-action="search#submit"
   data-search-path-value="<%= compare_path query: "" %>">
-  <input data-search-target="input" type="text" value="<%= gemnames.join " " %>">
-  <button>
-    <%= t ".search" %>
-  </button>
+
+  <input class="w-full"
+    data-search-target="input"
+    type="text"
+    value="<%= gemnames.join " " %>">
+
+  <div class="mt-6">
+    <button class="button-primary">
+      <%= t ".search" %>
+    </button>
+  </div>
 </form>

@@ -15,14 +15,17 @@ export default class extends Controller {
     const labels = datesArray.sort((a, b) => b.length - a.length)[0];
 
     const seq = palette("cb-Paired", 11);
-    const datasets = this.dataValue.map(({ name, summaries }, index) => ({
-      label: name,
-      data: summaries.map(({ date, count }) => ({ x: date, y: count })),
-      tension: 0.5,
-      backgroundColor: `#${seq[index]}`,
-      borderColor: `#${seq[index]}`,
-      hoverRadius: 6,
-    }));
+    const datasets = this.dataValue.map(({ name, summaries }, index) => {
+      const color = seq[(index * 2) % 11];
+      return {
+        label: name,
+        data: summaries.map(({ date, count }) => ({ x: date, y: count })),
+        tension: 0.5,
+        backgroundColor: `#${color}`,
+        borderColor: `#${color}`,
+        hoverRadius: 6,
+      };
+    });
 
     const config = {
       type: "line",
