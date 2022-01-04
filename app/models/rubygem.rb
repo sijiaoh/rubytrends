@@ -1,5 +1,6 @@
 class Rubygem < ApplicationRecord
   has_many :daily_summaries, dependent: :destroy
+  validates :name, format: { with: /\A[a-z\-_]+\z/ }
 
   def fetch_if_need!
     return if last_fetch_date == Time.zone.today

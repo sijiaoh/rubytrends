@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :rubygem do
-    name { Faker::Name.unique.name }
+    name { Faker::Internet.unique.username.tr ".", "_" }
   end
 end
