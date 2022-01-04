@@ -19,7 +19,7 @@ class CompareController < ApplicationController
   end
 
   def set_gemnames
-    @gemnames = params[:query].split("~")
+    @gemnames = params[:query].downcase.split("~")
   end
 
   def query
