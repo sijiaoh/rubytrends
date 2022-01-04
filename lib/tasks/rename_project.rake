@@ -2,17 +2,18 @@ task :rename_project, [:name] => :environment do |_task, args|
   current_name = Rails.application.class.module_parent_name
   new_name = args[:name]
 
-  replace = proc do |method|
-    paths = `git grep --files-with-matches #{current_name.send(method)}`.split("\n")
+  replace = proc do |prev_str, new_str|
+    paths = `git grep --files-with-matches #{prev_str}`.split("\n")
     paths.each do |path|
       next if File.basename(path) == "README.md"
 
       file = File.read path
-      file.gsub! current_name.send(method), new_name.send(method)
+      file.gsub! prev_str, new_str
       File.write path, file
     end
   end
 
-  replace.call :camelize
-  replace.call :underscore
+  replace.call current_name.camelize, new_name.camelize
+  replace.call current_name.underscore, new_name.underscore
+  replace.call current_name.underscore.upcase, new_name.underscore.upcase
 end
