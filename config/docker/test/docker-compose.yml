@@ -18,7 +18,7 @@ services:
       dockerfile: ./config/docker/test/Dockerfile
     environment:
       RAILS_ENV: test
-      ELLIE_DATABASE_HOST: db
+      RUBYTRENDS_DATABASE_HOST: db
       SELENIUM_URL: http://selenium:4444/wd/hub
     depends_on:
       db:

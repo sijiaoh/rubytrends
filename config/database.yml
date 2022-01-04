@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  host: <%= ENV["ELLIE_DATABASE_HOST"] || "127.0.0.1" %>
+  host: <%= ENV["RUBYTRENDS_DATABASE_HOST"] || "127.0.0.1" %>
 
 development:
   <<: *default
@@ -52,4 +52,4 @@ production:
   <<: *default
   database: rubytrends_production
   username: rubytrends
-  password: <%= ENV["ELLIE_DATABASE_PASSWORD"] %>
+  password: <%= ENV["RUBYTRENDS_DATABASE_PASSWORD"] %>
