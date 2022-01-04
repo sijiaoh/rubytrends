@@ -6,6 +6,7 @@ class CompareController < ApplicationController
 
   def index
     @rubygems.each(&:fetch_if_need!)
+    QueryCount.count_query query
     @weekly_downloads_data = @rubygems.map(&:weekly_downloads_data)
   end
 
@@ -19,5 +20,9 @@ class CompareController < ApplicationController
 
   def set_gemnames
     @gemnames = params[:query].split("~")
+  end
+
+  def query
+    @gemnames.join("~")
   end
 end

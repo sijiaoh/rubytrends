@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_03_180107) do
+ActiveRecord::Schema.define(version: 2022_01_04_134528) do
 
   create_table "daily_summaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "total_downloads", null: false
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2022_01_03_180107) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["rubygem_id", "date"], name: "index_daily_summaries_on_rubygem_id_and_date", unique: true
     t.index ["rubygem_id"], name: "index_daily_summaries_on_rubygem_id"
+  end
+
+  create_table "query_counts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "query", null: false
+    t.integer "count", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["query"], name: "index_query_counts_on_query", unique: true
   end
 
   create_table "rubygems", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
