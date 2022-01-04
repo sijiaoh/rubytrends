@@ -17,9 +17,14 @@ export default class extends Controller {
     const seq = palette("cb-Paired", 11);
     const datasets = this.dataValue.map(({ name, summaries }, index) => {
       const color = seq[(index * 2) % 11];
+      const data = [
+        ...Array(labels.length - summaries.length).fill(null),
+        ...summaries.map(({ count }) => count),
+      ];
+
       return {
         label: name,
-        data: summaries.map(({ date, count }) => ({ x: date, y: count })),
+        data,
         tension: 0.5,
         backgroundColor: `#${color}`,
         borderColor: `#${color}`,
