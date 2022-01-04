@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .wrapper {
+    @apply mx-auto px-8 max-w-5xl;
+  }
   .title {
     @apply my-6 font-bold text-4xl;
   }
