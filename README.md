@@ -12,6 +12,12 @@ application up and running.
 - Database initialization  
   `rails db:migrate`
 
+- Run server.
+  `./bin/dev`
+
+- Run server with google analytics debug mode.
+  `GA_MEASUREMENT_ID=a ./bin/dev`
+
 - How to run the test suite  
   `./bin/test`
 
