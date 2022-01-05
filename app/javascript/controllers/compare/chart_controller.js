@@ -28,6 +28,7 @@ export default class extends Controller {
         tension: 0.5,
         backgroundColor: `#${color}`,
         borderColor: `#${color}`,
+        pointRadius: 0,
         hoverRadius: 6,
       };
     });
