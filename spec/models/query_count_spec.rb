@@ -4,6 +4,12 @@ RSpec.describe QueryCount, type: :model do
   describe ".count_query" do
     let(:query) { "a~b_c" }
 
+    it "normalizes query" do
+      query = "c~b~az~aa~ab"
+      described_class.count_query query
+      expect(described_class.last.query).to eq "aa~ab~az~b~c"
+    end
+
     context "with first time query" do
       it "creates new record" do
         expect do
