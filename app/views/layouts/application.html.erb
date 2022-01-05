@@ -10,8 +10,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <% if ENV["GA_MEASUREMENT_ID"].present? %>
-      <%= render "layouts/google_analytics", ga_measurement_id: ENV["GA_MEASUREMENT_ID"] %>
+    <% if ga_measurement_id.present? %>
+      <%= render "layouts/google_analytics" %>
     <% end %>
   </head>
 
