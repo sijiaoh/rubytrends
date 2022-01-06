@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  host: <%= ENV["RUBYTRENDS_DATABASE_HOST"] || "127.0.0.1" %>
+  host: <%= Utils.env_or_credential "rubytrends_database_host", "127.0.0.1" %>
 
 development:
   <<: *default
@@ -52,4 +52,4 @@ production:
   <<: *default
   database: rubytrends_production
   username: rubytrends
-  password: <%= ENV["RUBYTRENDS_DATABASE_PASSWORD"] %>
+  password: <%= Utils.env_or_credential "rubytrends_database_password", ("" unless Rails.env.production?) %>

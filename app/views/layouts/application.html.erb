@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ruby trends</title>
+    <%= display_meta_tags site: "ruby trends" %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,8 +10,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <% if ENV["GA_MEASUREMENT_ID"].present? %>
-      <%= render "layouts/google_analytics", ga_measurement_id: ENV["GA_MEASUREMENT_ID"] %>
+    <% if ga_measurement_id.present? %>
+      <%= render "layouts/google_analytics" %>
     <% end %>
   </head>
 

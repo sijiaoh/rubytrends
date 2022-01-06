@@ -24,7 +24,6 @@ services:
       RAILS_SERVE_STATIC_FILES: "true"
       RUBYTRENDS_DATABASE_HOST: db
       RUBYTRENDS_DATABASE_PASSWORD: ${RUBYTRENDS_DATABASE_PASSWORD}
-      GA_MEASUREMENT_ID: ${GA_MEASUREMENT_ID}
     volumes:
       - rubytrends_production_log_data:/app/log
     depends_on:
