@@ -4,10 +4,6 @@
   <%= render "shared/search", gemnames: @gemnames %>
 
   <div class="mt-8">
-    <div data-controller="compare--chart"
-      data-compare--chart-data-value="<%= @weekly_downloads_data.to_json %>">
-
-      <canvas data-compare--chart-target="chart"></canvas>
-    </div>
+    <turbo-frame id="chart" src="<%= chart_path @query, :one_year_ago %>"></turbo-frame>
   </div>
 </div>

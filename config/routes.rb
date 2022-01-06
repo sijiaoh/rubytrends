@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   resources :users, only: [:index, :show, :create]
   get "compare/:query", to: "compare#index", as: :compare
+  get "chart/:query/:since", to: "chart#index", as: :chart
 end
