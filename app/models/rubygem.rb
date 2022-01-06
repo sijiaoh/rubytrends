@@ -14,9 +14,9 @@ class Rubygem < ApplicationRecord
     end
   end
 
-  def weekly_downloads_data(since)
+  def weekly_downloads_data(period)
     daily_summaries = self.daily_summaries.order(date: :desc)
-    daily_summaries = daily_summaries.where("date > ?", since) if since.present?
+    daily_summaries = daily_summaries.where("date > ?", period) if period.present?
     weekly_summary_data = DailySummary.daily_to_weekly_summary_data daily_summaries
     { name: name, summaries: weekly_summary_data }
   end
