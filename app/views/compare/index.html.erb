@@ -4,6 +4,26 @@
   <%= render "shared/search", gemnames: @chart_view.gemnames %>
 
   <div class="mt-8">
-    <turbo-frame id="chart" src="<%= chart_path @chart_view.query, :one_year_ago %>"></turbo-frame>
+    <div class="mb-8">
+      <div
+        data-controller="compare--chart-since-select"
+        data-compare--chart-since-select-path-value="<%= chart_path @chart_view.query, ":since" %>"
+      >
+        <%= select_tag(
+          "since",
+          options_for_select(
+            ChartView::SINCE_OPTIONS.map{ |option| [t(".#{option}"), option] },
+            ChartView::DEFAULT_SINCE_OPTION
+          ),
+          "data-compare--chart-since-select-target": "select",
+          "data-action": "compare--chart-since-select#change"
+        ) %>
+      </div>
+    </div>
+
+    <turbo-frame
+      id="chart"
+      src="<%= chart_path @chart_view.query, ChartView::DEFAULT_SINCE_OPTION %>"
+    ></turbo-frame>
   </div>
 </div>

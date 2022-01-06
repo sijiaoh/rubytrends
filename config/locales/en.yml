@@ -2,3 +2,12 @@ en:
   home:
     index:
       title: "ruby trends"
+  compare:
+    index:
+      one_month_ago: "1 month ago"
+      three_months_ago: "3 months ago"
+      six_months_ago: "6 months ago"
+      one_year_ago: "1 year ago"
+      two_years_ago: "2 years ago"
+      five_years_ago: "5 years ago"
+      all_time: "All time"

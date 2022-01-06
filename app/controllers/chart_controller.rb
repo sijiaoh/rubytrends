@@ -7,6 +7,8 @@ class ChartController < ApplicationController
 
     rubygems = @chart_view.rubygems
     rubygems.each(&:fetch_if_need!)
-    @weekly_downloads_data = rubygems.map(&:weekly_downloads_data)
+
+    since = ChartView.since_option_to_date params[:since]
+    @weekly_downloads_data = rubygems.map { |rubygem| rubygem.weekly_downloads_data since }
   end
 end
