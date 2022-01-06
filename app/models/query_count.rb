@@ -1,13 +1,12 @@
 class QueryCount < ApplicationRecord
-  def self.count_query(query)
+  def self.count_query!(query)
     query = query.split("~").sort.join("~")
 
     query_count = find_by query: query
     if query_count.present?
       query_count.increment! :count # rubocop:disable Rails/SkipsModelValidations
     else
-      query_count = create! query: query
+      create! query: query
     end
-    query_count
   end
 end
