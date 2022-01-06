@@ -1,9 +1,9 @@
 <div class="wrapper">
-  <h1 class="title"><%= title @gemnames.join(" vs ") %></h1>
+  <h1 class="title"><%= title @chart_view.gemnames.join(" vs ") %></h1>
 
-  <%= render "shared/search", gemnames: @gemnames %>
+  <%= render "shared/search", gemnames: @chart_view.gemnames %>
 
   <div class="mt-8">
-    <turbo-frame id="chart" src="<%= chart_path @query, :one_year_ago %>"></turbo-frame>
+    <turbo-frame id="chart" src="<%= chart_path @chart_view.query, :one_year_ago %>"></turbo-frame>
   </div>
 </div>
