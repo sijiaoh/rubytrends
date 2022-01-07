@@ -2,6 +2,11 @@ en:
   home:
     index:
       title: "ruby trends"
+
+  shared:
+    search:
+      search: "Compare"
+
   compare:
     index:
       one_month: "1 month"
