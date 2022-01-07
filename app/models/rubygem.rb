@@ -28,6 +28,8 @@ class Rubygem < ApplicationRecord
   end
 
   def fetch_source_data
+    raise "Should mock Rubygem#fetch_source_data in test." if Rails.env.test?
+
     res = Faraday.get "https://bestgems.org/api/v1/gems/#{name}/total_downloads.json"
     JSON.parse res.body
   end

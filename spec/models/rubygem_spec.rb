@@ -7,9 +7,7 @@ RSpec.describe Rubygem, type: :model do
 
   describe "#fetch_if_need!" do
     context "without exists data" do
-      before do
-        allow(rubygem).to receive(:fetch_source_data).and_return(source_data)
-      end
+      include_context "with mocked Rubygem#fetch_resource_data"
 
       it "creates all daily summaries" do
         expect do
