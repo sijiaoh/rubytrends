@@ -4,7 +4,9 @@ export default class extends Controller {
   static targets = ["input"];
   static values = { path: String };
 
-  submit() {
+  submit(e) {
+    e.preventDefault();
+
     const query = this.inputTarget.value
       .split(" ")
       .filter((v) => v)
@@ -12,6 +14,7 @@ export default class extends Controller {
 
     if (!query) return;
 
-    Turbo.visit(`${this.pathValue}${query}`);
+    const path = `${this.pathValue}${query}`;
+    if (location.pathname !== path) Turbo.visit(path);
   }
 }
