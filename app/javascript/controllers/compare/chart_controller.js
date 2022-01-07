@@ -16,7 +16,9 @@ export default class extends Controller {
 
     const seq = palette("cb-Paired", 11);
     const datasets = this.dataValue.map(({ name, summaries }, index) => {
-      const color = seq[(index * 2) % 11];
+      // Use red to first color.
+      const offset = 2;
+      const color = seq[((index + offset) * 2) % 11];
       const data = [
         ...Array(labels.length - summaries.length).fill(null),
         ...summaries.map(({ count }) => count),
