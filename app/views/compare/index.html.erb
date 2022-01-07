@@ -21,9 +21,10 @@
       </div>
     </div>
 
-    <turbo-frame
-      id="chart"
-      src="<%= chart_path @chart_view.query, ChartView::DEFAULT_PERIOD %>"
-    ></turbo-frame>
+    <turbo-frame id="chart">
+      <div class="h-64 flex justify-center items-center">
+        <span class="material-icons animate-spin text-6xl text-blue-400">autorenew</span>
+      </div>
+    </turbo-frame>
   </div>
 </div>
