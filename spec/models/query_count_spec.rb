@@ -30,5 +30,17 @@ RSpec.describe QueryCount, type: :model do
         expect { count_query!.call }.to change { model.reload.count }.by(1)
       end
     end
+
+    context "with contains duplicate query" do
+      let(:query) { "c~b~az~aa~ab~aa~ab" }
+
+      before do
+        count_query!.call
+      end
+
+      it "counts up" do
+        expect(described_class.first.query).to eq query.split("~").uniq.sort.join("~")
+      end
+    end
   end
 end

@@ -1,6 +1,6 @@
 class QueryCount < ApplicationRecord
   def self.count_query!(query)
-    query = query.split("~").sort.join("~")
+    query = query.split("~").uniq.sort.join("~")
 
     query_count = find_by query: query
     if query_count.present?

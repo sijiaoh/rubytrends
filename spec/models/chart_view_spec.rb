@@ -15,6 +15,14 @@ RSpec.describe ChartView, type: :model do
     it "returns an array split by ~" do
       expect(chart_view.gemnames).to eq raw_query.downcase.split("~")
     end
+
+    context "with contains duplicate query" do
+      let(:raw_query) { "B_c~a~a" }
+
+      it "returns an array that not contains duplicate item" do
+        expect(chart_view.gemnames).to eq raw_query.downcase.split("~").uniq
+      end
+    end
   end
 
   describe "#prepare_rubygems!" do

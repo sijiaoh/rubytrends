@@ -41,7 +41,7 @@ class ChartView
   end
 
   def gemnames
-    @gemnames ||= query.split("~")
+    @gemnames ||= query.split("~").uniq
   end
 
   def prepare_rubygems!
