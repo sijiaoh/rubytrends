@@ -4,9 +4,8 @@ ja:
       user:
         terms_of_service: "利用規約"
 
-  home:
-    index:
-      title: "Ellie"
+  title: "Ellie"
+
   session:
     new:
       title: "登録 / ログイン"
