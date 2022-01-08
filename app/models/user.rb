@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :terms_of_service, acceptance: true
 
   has_many :social_profiles, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   def self.from_omniauth(access_token)
     social_profile = SocialProfile.find_by provider: access_token.provider, uid: access_token.uid
