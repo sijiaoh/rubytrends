@@ -20,6 +20,10 @@ Metrics/BlockLength:
 Style/Documentation:
   Enabled: false
 
+Style/StructInheritance:
+  Exclude:
+    - app/policies/**/*.rb
+
 RSpec/ExampleLength:
   Exclude:
     - spec/system/**/*.rb

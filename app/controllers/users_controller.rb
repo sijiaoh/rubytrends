@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  skip_after_action :verify_policy_scoped, except: :show
+
+  before_action :authorize_action, except: :show
   before_action :set_user, only: %i[show]
   before_action :set_omniauth_data, only: %i[new create]
 
@@ -6,7 +9,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+  def show
+    authorize @user
+  end
 
   def new
     @user = User.new
@@ -24,8 +29,12 @@ class UsersController < ApplicationController
 
   private
 
+  def authorize_action
+    authorize :user
+  end
+
   def set_user
-    @user = User.find(params[:id])
+    @user = policy_scope(User).find(params[:id])
   end
 
   def user_params

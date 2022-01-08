@@ -24,14 +24,7 @@ RemoveEmptyHelpersCheck: {}
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: {}
 RemoveUnusedMethodsInControllersCheck:
-  {
-    except_methods:
-      [
-        "ApplicationController#access_denied!",
-        "ApplicationController#render_forbidden",
-        "ApplicationController#render_not_found",
-      ],
-  }
+  { except_methods: ["ApplicationController#render_not_found"] }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck:
   {
