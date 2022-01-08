@@ -141,9 +141,6 @@ GEM
     io-wait (0.2.1)
     irb (1.4.1)
       reline (>= 0.3.0)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     json (2.6.1)
     loofah (2.13.0)
       crass (~> 1.0.2)
@@ -326,7 +323,6 @@ DEPENDENCIES
   faker
   faraday
   importmap-rails
-  jbuilder
   meta-tags
   mysql2 (~> 0.5)
   mysql_in_docker
