@@ -1,7 +1,5 @@
 en:
-  home:
-    index:
-      title: "ruby trends"
+  title: "ruby trends"
 
   shared:
     search:
