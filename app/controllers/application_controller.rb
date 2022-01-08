@@ -1,8 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Pundit
-  after_action :verify_authorized
-  after_action :verify_policy_scoped
-
   private
 
   def render_not_found

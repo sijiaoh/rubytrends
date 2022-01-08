@@ -64,11 +64,6 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 
-  OmniAuth.config.test_mode = true
-  google = Faker::Omniauth.unique.google
-  OmniAuth.config.add_mock(google[:provider], google)
-
-  config.include Devise::Test::IntegrationHelpers, type: :system
   config.before :all, type: :system do
     selenium_url = ENV["SELENIUM_URL"]
     if selenium_url

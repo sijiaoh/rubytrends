@@ -1,9 +1,4 @@
 ja:
-  activerecord:
-    attributes:
-      user:
-        terms_of_service: "利用規約"
-
   shared:
     search:
       search: "比較"
@@ -11,12 +6,3 @@ ja:
   home:
     index:
       title: "ruby trends"
-  session:
-    new:
-      title: "登録 / ログイン"
-      with_google: "Googleアカウント"
-  users:
-    new:
-      title: "ユーザー登録"
-
-  sign_out: サインアウト
