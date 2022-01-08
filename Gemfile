@@ -58,6 +58,7 @@ gem "devise-i18n"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 gem "pundit"
+gem "rolify"
 
 gem "meta-tags"
 

@@ -271,6 +271,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rolify (6.0.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -375,6 +376,7 @@ DEPENDENCIES
   rails (~> 7.0.0)
   rails-i18n
   rails_best_practices
+  rolify
   rspec-rails
   rubocop
   rubocop-performance
