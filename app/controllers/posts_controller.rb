@@ -1,25 +1,23 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
-  # GET /posts
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post).all
+    authorize @posts
   end
 
-  # GET /posts/1
   def show; end
 
-  # GET /posts/new
   def new
-    @post = Post.new
+    @post = authorize Post.new
+    skip_policy_scope
   end
 
-  # GET /posts/1/edit
   def edit; end
 
-  # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = authorize Post.new(post_params)
+    skip_policy_scope
 
     if @post.save
       redirect_to @post, notice: "Post was successfully created."
@@ -28,7 +26,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
       redirect_to @post, notice: "Post was successfully updated."
@@ -37,7 +34,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
   def destroy
     @post.destroy
     redirect_to posts_url, notice: "Post was successfully destroyed."
@@ -45,12 +41,10 @@ class PostsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @post = Post.find(params[:id])
+    @post = authorize policy_scope(Post).find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def post_params
     params.require(:post).permit(:title, :content, :published).merge(user: current_user)
   end
