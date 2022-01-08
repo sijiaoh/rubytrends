@@ -3,6 +3,4 @@ ja:
     search:
       search: "比較"
 
-  home:
-    index:
-      title: "ruby trends"
+  title: "ruby trends"
