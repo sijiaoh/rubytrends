@@ -34,7 +34,7 @@ config/**/*.key
 # dotenv, dotenv-rails
 # TODO Comment out these rules if environment variables can be committed
 .env
-.env.*
+.env*.local
 
 ## Environment normalization:
 /.bundle/*
@@ -82,10 +82,13 @@ yarn-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+!.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
+
+# Built Visual Studio Code Extensions
+*.vsix
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
@@ -93,6 +96,5 @@ yarn-debug.log*
 .ionide
 
 # Support for Project snippet scope
-!.vscode/*.code-snippets
 
 # End of https://www.toptal.com/developers/gitignore/api/rails,visualstudiocode
