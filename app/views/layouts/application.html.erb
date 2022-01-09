@@ -18,6 +18,7 @@
   <body>
     <%= render "layouts/header", user: current_user %>
     <main class="container mx-auto">
+      <%= render "layouts/messages" %>
       <%= yield %>
     </main>
   </body>
