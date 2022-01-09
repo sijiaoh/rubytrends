@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { v4 } from "uuid";
+import { get_importmap } from "utils/get_importmap";
 
 export default class extends Controller {
   async connect() {
@@ -12,7 +13,14 @@ export default class extends Controller {
     textarea.id = id;
     this.selector = `#${id}`;
 
+    const importmap = get_importmap();
+    const language = "ja";
+    const language_url = importmap.imports[`tinymce_languages/${language}`];
+
     await tinymce.init({
+      language,
+      language_url,
+
       selector: this.selector,
       menubar: false,
       statusbar: false,
