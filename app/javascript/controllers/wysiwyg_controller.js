@@ -32,10 +32,11 @@ export default class extends Controller {
 
       setup: this.editorSetup,
 
-      plugins: ["autoresize", "link", "table", "lists", "paste", "codesample"],
       min_height: 500,
       autoresize_bottom_margin: 0,
+      invalid_elements: "br",
 
+      plugins: ["autoresize", "link", "table", "lists", "paste", "codesample"],
       toolbar: [
         "undo redo",
         "alignleft aligncenter alignright",
@@ -48,6 +49,7 @@ export default class extends Controller {
       default_link_target: "_blank",
       link_default_protocol: "https",
       paste_as_text: true,
+      paste_block_drop: true,
 
       table_appearance_options: false,
       table_advtab: false,
