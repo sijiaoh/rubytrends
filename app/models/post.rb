@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
-  before_save :escape_content
-
   belongs_to :user
+
+  validates :title, presence: true
+
+  before_save :escape_content
 
   private
 
