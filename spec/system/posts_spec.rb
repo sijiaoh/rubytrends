@@ -8,8 +8,9 @@ RSpec.describe "Posts", type: :system do
   end
 
   describe "show" do
-    let(:user) { create :user }
-    let(:post) { create :post, user: }
+    include_context "when signed in"
+
+    let(:post) { create :post, user: current_user }
     let(:path) { post_path(post) }
 
     include_examples "simple visit test"
