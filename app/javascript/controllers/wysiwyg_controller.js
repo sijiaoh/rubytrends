@@ -27,25 +27,22 @@ export default class extends Controller {
 
       setup: this.editorSetup,
 
-      plugins: ["autoresize", "table"],
+      plugins: ["autoresize", "link", "table", "lists", "paste", "codesample"],
       min_height: 500,
       autoresize_bottom_margin: 0,
 
       toolbar: [
-        "undo",
-        "redo",
-        "|",
-        "h2",
-        "h3",
-        "alignleft",
-        "aligncenter",
-        "alignright",
-        "|",
-        "bold",
-        "italic",
-        "|",
-        "table",
-      ].join(" "),
+        "undo redo",
+        "alignleft aligncenter alignright",
+        "h2 h3",
+        "bold italic underline strikethrough",
+        "forecolor backcolor link",
+        "bullist numlist table codesample",
+      ].join(" | "),
+
+      default_link_target: "_blank",
+      link_default_protocol: "https",
+      paste_as_text: true,
     });
   }
 
