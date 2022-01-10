@@ -16,7 +16,7 @@
 
   <div class="my-5 flex flex-col">
     <%= form.label :content %>
-    <%= render "shared/wysiwyg" do %>
+    <%= render "shared/wysiwyg", className: "min-h-[30rem]" do %>
       <%= form.text_area :content %>
     <% end %>
   </div>

@@ -19,6 +19,8 @@ export default class extends Controller {
     const language = "ja";
     const language_url = importmap.imports[`tinymce_languages/${language}`];
 
+    const minHeight = this.element.clientHeight;
+
     await tinymce.init({
       language,
       language_url,
@@ -32,7 +34,7 @@ export default class extends Controller {
 
       setup: this.editorSetup,
 
-      min_height: 500,
+      min_height: minHeight,
       autoresize_bottom_margin: 0,
       invalid_elements: "br",
 
