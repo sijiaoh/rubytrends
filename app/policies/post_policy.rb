@@ -4,7 +4,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.published? || user == record.user
   end
 
   def create?
@@ -21,7 +21,11 @@ class PostPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.all
+      if user.present?
+        scope.all
+      else
+        scope.where(published: true)
+      end
     end
   end
 end
