@@ -6,7 +6,9 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Content:</strong>
-    <%= post.content %>
+    <div class="<%= wysiwyg_class %>">
+      <%== post.content %>
+    </div>
   </p>
 
   <p class="my-5">

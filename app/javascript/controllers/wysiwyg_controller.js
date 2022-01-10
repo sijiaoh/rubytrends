@@ -3,6 +3,8 @@ import { v4 } from "uuid";
 import { get_importmap } from "utils/get_importmap";
 
 export default class extends Controller {
+  static values = { bodyClass: String, contentCss: Array };
+
   async connect() {
     const textareas = this.element.getElementsByTagName("textarea");
     if (textareas.length != 1)
@@ -25,6 +27,9 @@ export default class extends Controller {
       menubar: false,
       statusbar: false,
 
+      body_class: this.bodyClassValue,
+      content_css: this.contentCssValue,
+
       setup: this.editorSetup,
 
       plugins: ["autoresize", "link", "table", "lists", "paste", "codesample"],
@@ -43,6 +48,11 @@ export default class extends Controller {
       default_link_target: "_blank",
       link_default_protocol: "https",
       paste_as_text: true,
+
+      table_appearance_options: false,
+      table_advtab: false,
+      table_cell_advtab: false,
+      table_row_advtab: false,
     });
   }
 
