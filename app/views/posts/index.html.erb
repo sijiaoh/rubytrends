@@ -4,5 +4,5 @@
     <%= link_to 'New post', new_post_path, class: "button-primary" %>
   </div>
 
-  <%= render @posts %>
+  <%= render partial: "index_post", collection: @posts, as: :post %>
 </div>

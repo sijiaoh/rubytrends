@@ -1,7 +1,5 @@
 <div>
   <h1 class="title my-default"><%= title "Users" %></h1>
 
-  <div>
-    <%= render @users %>
-  </div>
+  <%= render partial: "index_user", collection: @users, as: :user %>
 </div>

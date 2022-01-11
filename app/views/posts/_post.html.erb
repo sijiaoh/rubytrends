@@ -1,23 +1,14 @@
 <div id="<%= dom_id post %>" class="my-default">
-  <div class="my-default font-bold"><%= post.title %></div>
+  <div class="title my-default"><%= post.title %></div>
 
-  <% if action_name == "show" %>
-    <div class="horizontal my-default">
-      <div class="font-medium">Published:</div>
-      <%= post.published %>
-    </div>
+  <div class="horizontal my-default">
+    <div class="font-medium">Published:</div>
+    <%= post.published %>
+  </div>
 
-    <div class="my-default">
-      <div class="<%= wysiwyg_class %>">
-        <%== post.content %>
-      </div>
+  <div class="my-default">
+    <div class="<%= wysiwyg_class %>">
+      <%== post.content %>
     </div>
-  <% end %>
-
-  <% if action_name != "show" %>
-    <div class="scaffold-buttons my-default">
-      <%= link_to "Show this post", post, class: "button-primary" %>
-      <%= link_to 'Edit this post', edit_post_path(post), class: "button-secondary" %>
-    </div>
-  <% end %>
+  </div>
 </div>
