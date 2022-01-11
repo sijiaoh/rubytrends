@@ -1,9 +1,9 @@
 <div>
-  <h1 class="title my-default">Editing post</h1>
+  <h1 class="title my-default"><%= t ".title" %></h1>
 
   <div class="scaffold-buttons my-default">
-    <%= link_to "Show this post", @post, class: "button-primary" %>
-    <%= link_to "Back to posts", posts_path, class: "button-secondary" %>
+    <%= link_to t("detail"), @post, class: "button-primary" %>
+    <%= link_to t("back_to_index"), posts_path, class: "button-secondary" %>
   </div>
 
   <%= render "form", post: @post %>

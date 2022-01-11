@@ -1,7 +1,7 @@
 <div>
-  <h1 class="title my-default">New post</h1>
+  <h1 class="title my-default"><%= t(".title") %></h1>
 
   <%= render "form", post: @post %>
 
-  <%= link_to 'Back to posts', posts_path, class: "button-secondary my-default" %>
+  <%= link_to t("back_to_index"), posts_path, class: "button-secondary my-default" %>
 </div>
