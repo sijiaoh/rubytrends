@@ -23,6 +23,8 @@ ja:
       title: "登録 / ログイン"
       with_google: "Googleアカウント"
   users:
+    index:
+      title: "ユーザー一覧"
     new:
       title: "ユーザー登録"
   posts:
