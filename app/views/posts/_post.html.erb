@@ -1,24 +1,23 @@
-<div id="<%= dom_id post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= post.title %>
-  </p>
+<div id="<%= dom_id post %>" class="my-default">
+  <div class="my-default font-bold"><%= post.title %></div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Content:</strong>
-    <div class="<%= wysiwyg_class %>">
-      <%== post.content %>
+  <% if action_name == "show" %>
+    <div class="horizontal my-default">
+      <div class="font-medium">Published:</div>
+      <%= post.published %>
     </div>
-  </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Published:</strong>
-    <%= post.published %>
-  </p>
+    <div class="my-default">
+      <div class="<%= wysiwyg_class %>">
+        <%== post.content %>
+      </div>
+    </div>
+  <% end %>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this post", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this post', edit_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <div class="scaffold-buttons my-default">
+      <%= link_to "Show this post", post, class: "button-primary" %>
+      <%= link_to 'Edit this post', edit_post_path(post), class: "button-secondary" %>
+    </div>
   <% end %>
 </div>

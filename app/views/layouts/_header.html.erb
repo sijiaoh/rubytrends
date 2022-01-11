@@ -1,5 +1,12 @@
-<header>
-  <% if user %>
-    <%= button_to t("sign_out"), sign_out_path, method: :delete, class: "button-primary" %>
-  <% end %>
+<header class="flex justify-between items-center">
+  <div>
+    <%= link_to t("title"), root_url, class: "button-base" %>
+  </div>
+  <div>
+    <% if user.present? %>
+      <%= button_to t("sign_out"), sign_out_path, method: :delete, class: "button-primary" %>
+    <% else %>
+      <%= link_to t("session.new.title"), sign_in_path, class: "button-primary" %>
+    <% end %>
+  </div>
 </header>

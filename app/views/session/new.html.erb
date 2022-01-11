@@ -1,7 +1,9 @@
 <div>
-  <h1 class="font-bold text-4xl"><%= title t(".title") %></h1>
+  <h1 class="title my-default"><%= title t(".title") %></h1>
 
   <%# https://github.com/hotwired/turbo/issues/288 %>
-  <%= button_to t(".with_google"), user_google_oauth2_omniauth_authorize_path,
-    class: "button-primary", data: { turbo: false } %>
+  <%= button_to t(".with_google"), user_google_oauth2_omniauth_authorize_path, {
+    class: "button-primary my-default",
+    data: { turbo: false }
+  } %>
 </div>

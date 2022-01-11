@@ -3,10 +3,42 @@
 @tailwind utilities;
 
 @layer components {
+  .my-default {
+    @apply my-5;
+  }
+
   .button-base {
-    @apply font-bold py-2 px-4 rounded;
+    @apply block w-fit font-bold py-2 px-4 rounded;
   }
   .button-primary {
-    @apply button-base text-white bg-blue-500 hover:bg-blue-600;
+    @apply button-base text-white bg-primary-500 hover:bg-primary-600;
+  }
+  .button-secondary {
+    @apply button-base text-white bg-secondary-500 hover:bg-secondary-600;
+  }
+  .button-danger {
+    @apply button-base text-white bg-danger-500 hover:bg-danger-600;
+  }
+
+  .title {
+    @apply font-bold text-4xl;
+  }
+
+  .vertical {
+    @apply flex flex-col gap-1;
+  }
+  .horizontal {
+    @apply flex items-center gap-1;
+  }
+
+  .text-field {
+    @apply rounded-md border-gray-200;
+  }
+
+  .scaffold-buttons {
+    @apply horizontal gap-3;
+  }
+  .scaffold-errors {
+    @apply bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg;
   }
 }

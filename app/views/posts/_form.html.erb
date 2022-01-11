@@ -1,32 +1,22 @@
-<%= form_with(model: post, class: "contents") do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: post, class: "contents my-default") do |form| %>
+  <%= render "shared/form_errors", errors: post.errors %>
 
-  <div class="my-5">
+  <div class="vertical my-default">
     <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :title, class: "text-field" %>
   </div>
 
-  <div class="my-5 flex flex-col">
+  <div class="vertical my-default">
     <%= form.label :content %>
     <%= render "shared/wysiwyg", className: "min-h-[30rem]" do %>
       <%= form.text_area :content %>
     <% end %>
   </div>
 
-  <div class="my-5">
+  <div class="horizontal my-default">
+    <%= form.check_box :published %>
     <%= form.label :published %>
-    <%= form.check_box :published, class: "block mt-2 h-5 w-5" %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
+  <%= form.submit class: "button-primary my-default" %>
 <% end %>
