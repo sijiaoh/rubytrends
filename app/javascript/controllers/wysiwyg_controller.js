@@ -90,6 +90,7 @@ export default class extends Controller {
 
       default_link_target: "_blank",
       link_default_protocol: "https",
+      link_title: false,
       paste_as_text: true,
       paste_block_drop: true,
 
