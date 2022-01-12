@@ -79,7 +79,6 @@ export default class extends Controller {
       link_default_protocol: "https",
       target_list: [{ text: "New window", value: "_blank" }],
       link_title: false,
-      paste_block_drop: true,
 
       table_appearance_options: false,
       table_advtab: false,
