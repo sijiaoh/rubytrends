@@ -42,16 +42,6 @@ export default class extends Controller {
     return this._languageUrl;
   }
 
-  editorSetup(editor) {
-    editor.on("keydown", function (event) {
-      // Always use p tag to newline.
-      const enter = 13;
-      if (event.keyCode == enter && event.shiftKey) {
-        event.shiftKey = false;
-      }
-    });
-  }
-
   plugins = ["autoresize", "link", "table", "lists", "paste", "codesample"];
 
   toolbar = [
@@ -79,11 +69,8 @@ export default class extends Controller {
       body_class: this.bodyClassValue,
       content_css: this.contentCssValue,
 
-      setup: this.editorSetup,
-
       min_height: this.minHeight,
       autoresize_bottom_margin: 0,
-      invalid_elements: "br",
 
       plugins: this.plugins,
       toolbar: this.toolbar,
@@ -91,7 +78,6 @@ export default class extends Controller {
       default_link_target: "_blank",
       link_default_protocol: "https",
       link_title: false,
-      paste_as_text: true,
       paste_block_drop: true,
 
       table_appearance_options: false,
