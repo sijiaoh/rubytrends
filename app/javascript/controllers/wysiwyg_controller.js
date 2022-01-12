@@ -42,7 +42,15 @@ export default class extends Controller {
     return this._languageUrl;
   }
 
-  plugins = ["autoresize", "link", "table", "lists", "paste", "codesample"];
+  plugins = [
+    "autoresize",
+    "link",
+    "table",
+    "lists",
+    "paste",
+    "codesample",
+    "code",
+  ];
 
   toolbar = [
     "undo redo",
@@ -51,6 +59,7 @@ export default class extends Controller {
     "bold italic underline strikethrough",
     "forecolor backcolor link",
     "bullist numlist table codesample",
+    "code",
   ].join(" | ");
 
   get minHeight() {
