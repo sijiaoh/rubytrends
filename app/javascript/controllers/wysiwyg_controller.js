@@ -6,58 +6,40 @@ export default class extends Controller {
   static values = { bodyClass: String, contentCss: Array };
 
   async connect() {
+    this.setIdToTextarea();
+    await this.mountTinymce();
+  }
+
+  disconnect() {
+    if (this.selector) tinymce.remove(this.selector);
+  }
+
+  get id() {
+    if (this._id == null) this._id = v4();
+    return this._id;
+  }
+
+  get selector() {
+    return `#${this.id}`;
+  }
+
+  setIdToTextarea() {
     const textareas = this.element.getElementsByTagName("textarea");
     if (textareas.length != 1)
       throw new Error("wysiwyg_controller shuld have 1 textarea");
-
     const textarea = textareas[0];
-    const id = v4();
-    textarea.id = id;
-    this.selector = `#${id}`;
+    textarea.id = this.id;
+  }
 
-    const importmap = get_importmap();
-    const language = "ja";
-    const language_url = importmap.imports[`tinymce_languages/${language}`];
+  language = "ja";
 
-    const minHeight = this.element.clientHeight;
-
-    await tinymce.init({
-      language,
-      language_url,
-
-      selector: this.selector,
-      menubar: false,
-      statusbar: false,
-
-      body_class: this.bodyClassValue,
-      content_css: this.contentCssValue,
-
-      setup: this.editorSetup,
-
-      min_height: minHeight,
-      autoresize_bottom_margin: 0,
-      invalid_elements: "br",
-
-      plugins: ["autoresize", "link", "table", "lists", "paste", "codesample"],
-      toolbar: [
-        "undo redo",
-        "alignleft aligncenter alignright",
-        "h2 h3",
-        "bold italic underline strikethrough",
-        "forecolor backcolor link",
-        "bullist numlist table codesample",
-      ].join(" | "),
-
-      default_link_target: "_blank",
-      link_default_protocol: "https",
-      paste_as_text: true,
-      paste_block_drop: true,
-
-      table_appearance_options: false,
-      table_advtab: false,
-      table_cell_advtab: false,
-      table_row_advtab: false,
-    });
+  get languageUrl() {
+    if (this._languageUrl == null) {
+      const importmap = get_importmap();
+      this._languageUrl =
+        importmap.imports[`tinymce_languages/${this.language}`];
+    }
+    return this._languageUrl;
   }
 
   editorSetup(editor) {
@@ -70,7 +52,51 @@ export default class extends Controller {
     });
   }
 
-  disconnect() {
-    if (this.selector) tinymce.remove(this.selector);
+  plugins = ["autoresize", "link", "table", "lists", "paste", "codesample"];
+
+  toolbar = [
+    "undo redo",
+    "alignleft aligncenter alignright",
+    "h2 h3",
+    "bold italic underline strikethrough",
+    "forecolor backcolor link",
+    "bullist numlist table codesample",
+  ].join(" | ");
+
+  get minHeight() {
+    return this.element.clientHeight;
+  }
+
+  async mountTinymce() {
+    await tinymce.init({
+      language: this.language,
+      language_url: this.languageUrl,
+
+      selector: this.selector,
+      menubar: false,
+      statusbar: false,
+
+      body_class: this.bodyClassValue,
+      content_css: this.contentCssValue,
+
+      setup: this.editorSetup,
+
+      min_height: this.minHeight,
+      autoresize_bottom_margin: 0,
+      invalid_elements: "br",
+
+      plugins: this.plugins,
+      toolbar: this.toolbar,
+
+      default_link_target: "_blank",
+      link_default_protocol: "https",
+      paste_as_text: true,
+      paste_block_drop: true,
+
+      table_appearance_options: false,
+      table_advtab: false,
+      table_cell_advtab: false,
+      table_row_advtab: false,
+    });
   }
 }
