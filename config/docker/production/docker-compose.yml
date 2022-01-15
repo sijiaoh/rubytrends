@@ -24,6 +24,7 @@ services:
       RAILS_SERVE_STATIC_FILES: "true"
       ELLIE_DATABASE_HOST: db
       ELLIE_DATABASE_PASSWORD: ${ELLIE_DATABASE_PASSWORD}
+      GA_MEASUREMENT_ID: ${GA_MEASUREMENT_ID}
     volumes:
       - ellie_production_log_data:/app/log
     depends_on:
