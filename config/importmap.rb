@@ -13,4 +13,3 @@ pin "google_analytics", to: "google_analytics.js"
 
 pin "chart.js", to: "https://ga.jspm.io/npm:chart.js@3.7.0/dist/chart.esm.js"
 pin "google-palette", to: "https://ga.jspm.io/npm:google-palette@1.1.0/palette.js"
-pin "uuid", to: "https://ga.jspm.io/npm:uuid@8.3.2/dist/esm-browser/index.js"
