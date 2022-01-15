@@ -32,5 +32,7 @@ class Rubygem < ApplicationRecord
 
     res = Faraday.get "https://bestgems.org/api/v1/gems/#{name}/total_downloads.json"
     JSON.parse res.body
+  rescue StandardError
+    []
   end
 end
