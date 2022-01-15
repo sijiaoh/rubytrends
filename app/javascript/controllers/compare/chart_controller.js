@@ -43,6 +43,11 @@ export default class extends Controller {
           mode: "index",
           intersect: false,
         },
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
       },
     };
     new Chart(this.chartTarget, config);
