@@ -40,8 +40,8 @@ class DailySummary < ApplicationRecord
       new(
         date: source_datum["date"],
         total_downloads: source_datum["total_downloads"],
-        daily_downloads: daily_downloads,
-        rubygem: rubygem
+        daily_downloads:,
+        rubygem:
       )
     end
   end
