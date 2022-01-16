@@ -5,6 +5,18 @@ RSpec.describe Rubygem, type: :model do
 
   include_context "with fake resource data"
 
+  describe "#name" do
+    context "with correct name" do
+      let(:name) { "a-b_c-0_9" }
+
+      it "creates record" do
+        expect do
+          create :rubygem, name:
+        end.to change(described_class, :count).by 1
+      end
+    end
+  end
+
   describe "#fetch_if_need!" do
     context "without exists data" do
       include_context "with mocked Rubygem#fetch_resource_data"
