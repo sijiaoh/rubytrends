@@ -5,4 +5,6 @@
   </div>
 
   <%= render partial: "index_post", collection: @posts, as: :post %>
+
+  <%= paginate @posts %>
 </div>
