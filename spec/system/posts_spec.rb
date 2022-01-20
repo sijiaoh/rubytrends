@@ -56,9 +56,9 @@ RSpec.describe "Posts", type: :system do
   describe "edit" do
     subject(:path) { edit_post_path existing_post }
 
-    include_context "when signed in"
-
     let(:existing_post) { create :post, user: current_user, published: !post.published }
+
+    include_context "when signed in"
 
     it "change existing post" do
       visit path
@@ -77,9 +77,9 @@ RSpec.describe "Posts", type: :system do
   end
 
   describe "destroy" do
-    include_context "when signed in"
-
     let(:path) { post_path post }
+
+    include_context "when signed in"
 
     before do
       post.save!
