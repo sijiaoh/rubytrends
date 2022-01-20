@@ -75,4 +75,23 @@ RSpec.describe "Posts", type: :system do
       expect(existing_post.slice(*attributes)).to eq post.slice(*attributes)
     end
   end
+
+  describe "destroy" do
+    include_context "when signed in"
+
+    let(:path) { post_path post }
+
+    before do
+      post.save!
+    end
+
+    it "destroys post" do
+      visit path
+
+      expect do
+        click_on I18n.t("destroy")
+        expect(page).not_to have_current_path path
+      end.to change(Post, :count).by(-1)
+    end
+  end
 end
