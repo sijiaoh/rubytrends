@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def create
-    @post = authorize Post.new(post_params)
+    @post = authorize Post.new(post_params.merge(user: current_user))
     skip_policy_scope
 
     if @post.save
@@ -46,6 +46,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :published).merge(user: current_user)
+    params.require(:post).permit(:title, :content, :published)
   end
 end
