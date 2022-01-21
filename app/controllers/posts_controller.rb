@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = policy_scope(Post).eager_load([:user]).page(params[:page])
-    authorize @posts
+    @posts = authorize policy_scope(Post).eager_load([:user]).page(params[:page])
   end
 
   def show; end
