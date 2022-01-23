@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :store_user_location!, only: %i[new]
   skip_after_action :verify_policy_scoped, except: :show
 
   before_action :authorize_action, except: :show
