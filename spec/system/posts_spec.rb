@@ -3,15 +3,15 @@ require "rails_helper"
 RSpec.describe "Posts", type: :system do
   let(:post) { build :post, user: current_user }
 
-  let(:title_label) { Post.human_attribute_name :title }
-  let(:content_label) { Post.human_attribute_name :content }
-  let(:published_label) { Post.human_attribute_name :published }
+  def to_label(attribute)
+    Post.human_attribute_name attribute
+  end
 
   def check_published
     if post.published
-      check published_label
+      check to_label(:published)
     else
-      uncheck published_label
+      uncheck to_label(:published)
     end
   end
 
@@ -41,8 +41,8 @@ RSpec.describe "Posts", type: :system do
     it "creates new post" do
       visit path
 
-      fill_in title_label, with: post.title
-      fill_in content_label, with: post.content
+      fill_in to_label(:title), with: post.title
+      fill_in to_label(:content), with: post.content
       check_published
 
       click_on I18n.t "helpers.submit.create"
@@ -63,8 +63,8 @@ RSpec.describe "Posts", type: :system do
     it "change existing post" do
       visit path
 
-      fill_in title_label, with: post.title
-      fill_in content_label, with: post.content
+      fill_in to_label(:title), with: post.title
+      fill_in to_label(:content), with: post.content
       check_published
 
       click_on I18n.t "helpers.submit.update"
