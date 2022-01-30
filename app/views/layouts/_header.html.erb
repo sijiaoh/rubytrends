@@ -6,7 +6,7 @@
     <% if user.present? %>
       <%= button_to t("sign_out"), sign_out_path, method: :delete, class: "button-primary" %>
     <% else %>
-      <%= link_to t("session.new.title"), sign_in_path, class: "button-primary" %>
+      <%= link_to t("sessions.new.title"), sign_in_path, class: "button-primary" %>
     <% end %>
   </div>
 </header>
