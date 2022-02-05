@@ -1,5 +1,5 @@
 <%= form_with(model: user, class: "contents") do |form| %>
-  <%= render "shared/form_errors", errors: user.errors %>
+  <%= render "shared/form_errors", messages: user.errors.full_messages %>
 
   <div class="horizontal my-default">
     <%= form.check_box :terms_of_service %>
