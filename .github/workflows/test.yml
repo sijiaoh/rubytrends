@@ -7,11 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      COMPOSE_FILE: ./config/docker/test/docker-compose.yml
     steps:
       - uses: actions/checkout@v2
-      - name: Build
-        run: docker-compose --file=$COMPOSE_FILE build
-      - name: Run test
-        run: docker-compose --file=$COMPOSE_FILE run --rm app
+      - name: Run docker test
+        run: ./bin/docker_test
