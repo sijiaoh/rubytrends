@@ -20,4 +20,10 @@ task :rename_project, [:name] => :environment do |_task, args|
   replace.call current_name.camelize, new_name.camelize
   replace.call current_name.underscore, new_name.underscore
   replace.call current_name.underscore.upcase, new_name.underscore.upcase
+
+  docker_directory_paths = Dir["./config/docker/*"]
+  docker_directory_paths.each do |directory_path|
+    new_directory_path = directory_path.gsub(current_name.underscore, new_name.underscore)
+    FileUtils.move directory_path, new_directory_path
+  end
 end

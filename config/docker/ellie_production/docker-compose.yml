@@ -15,7 +15,7 @@ services:
     image: ellie_production
     build:
       context: ../../..
-      dockerfile: ./config/docker/production/Dockerfile
+      dockerfile: ./config/docker/ellie_production/Dockerfile
       args:
         - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
         - ELLIE_DATABASE_PASSWORD=${ELLIE_DATABASE_PASSWORD}

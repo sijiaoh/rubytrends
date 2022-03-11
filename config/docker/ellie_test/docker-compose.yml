@@ -15,7 +15,7 @@ services:
     image: ellie_test
     build:
       context: ../../..
-      dockerfile: ./config/docker/test/Dockerfile
+      dockerfile: ./config/docker/ellie_test/Dockerfile
     environment:
       RAILS_ENV: test
       ELLIE_DATABASE_HOST: db
