@@ -10,7 +10,7 @@ describe Utils do
 
     shared_context "with env" do
       before do
-        allow(ENV).to receive(:[]).with("A__B_C").and_return(env_value)
+        allow(ENV).to receive(:fetch).with("A__B_C", nil).and_return(env_value)
       end
     end
 

@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_031651) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_01_20_031651) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.boolean "published", default: false, null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "hashid"
     t.index ["hashid"], name: "index_posts_on_hashid", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -28,8 +27,8 @@ ActiveRecord::Schema.define(version: 2022_01_20_031651) do
     t.string "name"
     t.string "resource_type"
     t.bigint "resource_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
@@ -40,16 +39,16 @@ ActiveRecord::Schema.define(version: 2022_01_20_031651) do
     t.integer "provider", null: false
     t.string "uid", null: false
     t.string "email", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_social_profiles_on_provider_and_uid", unique: true
     t.index ["user_id", "provider"], name: "index_social_profiles_on_user_id_and_provider", unique: true
     t.index ["user_id"], name: "index_social_profiles_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "hashid"
     t.index ["hashid"], name: "index_users_on_hashid", unique: true
   end
