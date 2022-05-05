@@ -3,7 +3,7 @@ module Utils
   # a.b_c -> ENV[A__B_C] -> credentials[:a][:b_c]
   def self.env_or_credential(key, default = nil)
     env_key = key.upcase.gsub ".", "__"
-    res = ENV[env_key]
+    res = ENV.fetch(env_key, nil)
     return res if res.present?
 
     splited_keys = key.downcase.split "."

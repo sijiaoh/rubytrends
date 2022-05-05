@@ -70,7 +70,7 @@ RSpec.configure do |config|
 
   config.include Devise::Test::IntegrationHelpers, type: :system
   config.before :all, type: :system do
-    selenium_url = ENV["SELENIUM_URL"]
+    selenium_url = ENV.fetch("SELENIUM_URL", nil)
     if selenium_url
       driven_by :selenium, using: :headless_chrome, options: { url: selenium_url }
       Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
