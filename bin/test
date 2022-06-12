@@ -3,7 +3,7 @@
 set -eu
 
 ./bin/rails db:create
-./bin/rails db:test:prepare
+./bin/rails db:migrate
 
 bundle exec rubocop --format quiet
 bundle exec rails_best_practices --silent .
