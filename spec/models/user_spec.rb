@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     context "when unchecked" do
       it "faileds" do
         user.terms_of_service = "0"
-        expect { user.save }.to change(described_class, :count).by(0)
+        expect { user.save }.not_to change(described_class, :count)
       end
     end
   end
