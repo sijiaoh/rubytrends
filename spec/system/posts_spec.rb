@@ -86,7 +86,7 @@ RSpec.describe "Posts", type: :system do
       post.save!
     end
 
-    it "destroys post", js: true do
+    it "destroys post" do
       visit path
 
       expect do
