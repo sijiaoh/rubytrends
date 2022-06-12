@@ -5,6 +5,9 @@ set -eu
 ./bin/rails db:create
 ./bin/rails db:migrate
 
+# https://github.com/rails/tailwindcss-rails/issues/153
+./bin/rails tailwindcss:build
+
 bundle exec rubocop --format quiet
 bundle exec rails_best_practices --silent .
 bundle exec annotate --models --frozen
