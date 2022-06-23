@@ -72,6 +72,8 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
 
+  gem "shoulda-matchers"
+
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
 
