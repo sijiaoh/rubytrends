@@ -10,6 +10,15 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+  describe "associations" do
+    it { is_expected.to have_many(:social_profiles) }
+    it { is_expected.to have_many(:posts) }
+  end
+
+  describe "validations" do
+    it { is_expected.to validate_acceptance_of(:terms_of_service) }
+  end
+
   describe "#hashid" do
     it "generates after save automatically" do
       user = create :user

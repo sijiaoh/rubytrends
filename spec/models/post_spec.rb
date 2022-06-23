@@ -14,6 +14,14 @@
 require "rails_helper"
 
 RSpec.describe Post, type: :model do
+  describe "associations" do
+    it { is_expected.to belong_to(:user) }
+  end
+
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:title) }
+  end
+
   it "escapes content before save" do
     content = "<script>alert('hi');</script>"
     post = create :post, { user: create(:user), content: }
