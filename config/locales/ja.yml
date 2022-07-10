@@ -26,6 +26,7 @@ ja:
   sessions:
     new:
       title: "登録 / ログイン"
+      development_sign_in: "開発環境用サインイン"
       with_google: "Googleアカウント"
   users:
     index:

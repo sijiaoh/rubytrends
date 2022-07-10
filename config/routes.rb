@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   resources :users, param: :hashid, only: %i[index show create]
   resources :posts, param: :hashid
+
+  namespace :developments do
+    resources :sessions, only: %i[create]
+  end
 end
