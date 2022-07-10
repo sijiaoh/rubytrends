@@ -5,6 +5,7 @@ task :rename_project, [:name] => :environment do |_task, args|
   replace = proc do |prev_str, new_str|
     paths = `git grep --files-with-matches #{prev_str}`.split("\n")
     paths.each do |path|
+      next if File.basename(path) == "rename_project.rake"
       next if File.basename(path) == "README.md"
       next if path.include? "lib/generators/ellie"
 
