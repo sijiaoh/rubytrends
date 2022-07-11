@@ -4,15 +4,12 @@
     data-wysiwyg-id-value="<%= generate_wysiwyg_id %>"
     data-wysiwyg-body-class-value="<%= wysiwyg_class %>"
     data-action="turbo:before-cache@document->wysiwyg#unmount"
-    data-wysiwyg-content-css-value="<%=
-      [
-        asset_path("tailwind.css"),
-        asset_path("wysiwyg.css"),
-        prism_theme_css,
-      ].to_json
-    %>"
-    class="<%= local_assigns[:class_name] %>"
-  >
+    data-wysiwyg-content-css-value="<%= [
+                                          asset_path("tailwind.css"),
+                                          asset_path("wysiwyg.css"),
+                                          prism_theme_css
+                                        ].to_json %>"
+    class="<%= local_assigns[:class_name] %>">
     <%= yield %>
   </div>
 <% else %>
