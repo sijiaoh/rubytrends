@@ -1,3 +1,3 @@
 <% if policy(:user).index? %>
-  <%= link_to t("back_to_index"), users_path, class: "button-secondary" %>
+  <%= link_secondary t("back_to_index"), users_path %>
 <% end %>

@@ -1,12 +1,12 @@
 <header class="flex justify-between items-center">
   <div>
-    <%= link_to t("title"), root_url, class: "button-base" %>
+    <%= link_base t("title"), root_url %>
   </div>
   <div>
     <% if user.present? %>
-      <%= button_to t("sign_out"), sign_out_path, method: :delete, class: "button-primary" %>
+      <%= button_primary t("sign_out"), sign_out_path, method: :delete %>
     <% else %>
-      <%= link_to t("sessions.new.title"), sign_in_path, class: "button-primary" %>
+      <%= link_primary t("sessions.new.title"), sign_in_path %>
     <% end %>
   </div>
 </header>

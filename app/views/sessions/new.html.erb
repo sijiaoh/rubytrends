@@ -2,12 +2,12 @@
   <h1 class="title my-default"><%= title t ".title" %></h1>
 
   <% if policy([:developments, :session]).create? %>
-    <%= button_to t(".development_sign_in"), developments_sessions_path, { class: "button-primary my-default" } %>
+    <%= button_primary t(".development_sign_in"), developments_sessions_path, class: "my-default" %>
   <% end %>
 
   <%# https://github.com/hotwired/turbo/issues/288 %>
-  <%= button_to t(".with_google"), user_google_oauth2_omniauth_authorize_path, {
-        class: "button-primary my-default",
+  <%= button_primary t(".with_google"), user_google_oauth2_omniauth_authorize_path, **{
+        class: "my-default",
         data: { turbo: false }
       } %>
 </div>
