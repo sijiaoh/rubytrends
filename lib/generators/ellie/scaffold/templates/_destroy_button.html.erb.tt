@@ -1,8 +1,8 @@
 <%% if policy(<%= singular_table_name %>).destroy? %>
   <%%= button_danger(
-    t("destroy"),
-    <%= singular_table_name %>,
-    method: :delete,
-    form: { data: { turbo_confirm: t("destroy_confirm") } }
-  ) %>
+        t("destroy"),
+        <%= singular_table_name %>,
+        method: :delete,
+        form: { data: { turbo_confirm: t("destroy_confirm") } }
+      ) %>
 <%% end %>
