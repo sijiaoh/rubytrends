@@ -1,3 +1,3 @@
 <%% if policy(<%= singular_table_name %>).show? %>
-  <%%= link_to t("detail"), <%= singular_table_name %>, class: "button-primary" %>
+  <%%= link_primary t("detail"), <%= singular_table_name %> %>
 <%% end %>
