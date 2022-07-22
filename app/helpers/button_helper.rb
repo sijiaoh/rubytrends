@@ -16,7 +16,7 @@ module ButtonHelper
     end
 
     define_method "link_#{color}" do |*args, **options, &block|
-      public_send "button_#{color}", *args, **options, type: :link, &block
+      public_send("button_#{color}", *args, **options, type: :link, &block)
     end
   end
 
