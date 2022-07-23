@@ -1,14 +1,13 @@
 FROM ruby:3.1.2
 
-RUN apt update -qq \
+RUN apt update -qq
 
-  # Install chrome.
-  && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
   && apt update -qq \
-  && apt install -y -qq google-chrome-stable \
+  && apt install -y -qq google-chrome-stable
 
-  && apt clean && rm -rf /var/lib/apt/lists/*
+RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app/
 
