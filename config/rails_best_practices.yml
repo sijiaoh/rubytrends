@@ -31,7 +31,14 @@ RemoveUnusedMethodsInControllersCheck:
         "ApplicationController#render_not_found",
       ],
   }
-RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
+RemoveUnusedMethodsInHelpersCheck:
+  {
+    except_methods:
+      [
+        "ButtonHelper#button_secondary_style",
+        "ButtonHelper#button_danger_style",
+      ],
+  }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
 ReplaceInstanceVariableWithLocalVariableCheck: {}
