@@ -1,6 +1,6 @@
 <div>
   <div class="flex justify-between items-center">
-    <h1 class="title my-default"><%%= title t ".title" %></h1>
+    <%%= h1 t(".title"), class: "my-default" %>
     <%%= render "new_link" %>
   </div>
 

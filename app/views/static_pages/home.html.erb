@@ -1,4 +1,4 @@
 <div>
-  <h1 class="title my-default"><%= t "title" %></h1>
+  <%= h1 t("title"), title: false, class: "my-default" %>
   <%= render "posts/index_link" %>
 </div>

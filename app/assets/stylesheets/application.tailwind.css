@@ -9,10 +9,6 @@
     @apply my-5;
   }
 
-  .title {
-    @apply font-bold text-4xl;
-  }
-
   .vertical {
     @apply flex flex-col gap-1;
   }
