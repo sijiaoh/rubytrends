@@ -35,6 +35,7 @@ RemoveUnusedMethodsInHelpersCheck:
   {
     except_methods:
       [
+        "ButtonHelper#button_primary_style",
         "ButtonHelper#button_secondary_style",
         "ButtonHelper#button_danger_style",
       ],
