@@ -1,12 +1,15 @@
-<%= simple_form_for post do |form| %>
-  <%= form.input :title, wrapper_html: { class: "my-default" } %>
+<%= simple_form_for post do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= form.label :content %>
+  <%= f.input :title %>
+
+  <%= f.label :content %>
   <%= render "shared/wysiwyg", class_name: "min-h-[30rem]" do %>
-    <%= form.text_area :content %>
+    <%= f.text_area :content %>
   <% end %>
 
-  <%= form.input :published, wrapper_html: { class: "my-default" } %>
+  <%= f.input :published %>
 
-  <%= form.button :submit, class: "my-default" %>
+  <%= f.button :submit %>
 <% end %>

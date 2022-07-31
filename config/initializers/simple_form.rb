@@ -13,6 +13,9 @@ require Rails.root.join("app/helpers/button_helper")
 SimpleForm.setup do |config|
   include ButtonHelper
 
+  message_base_class = "px-3 py-2 rounded-lg"
+  error_message_class = "#{message_base_class} font-medium bg-red-50 text-red-500"
+
   # Wrappers are used by the form builder to generate a
   # complete input. You can remove any component from the
   # wrapper, change the order or even add your own to the
@@ -58,7 +61,6 @@ SimpleForm.setup do |config|
     ## Inputs
     # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label_input
-    message_base_class = "px-3 py-2 rounded-lg"
     b.use :hint, wrap_with: { tag: :span, class: "#{message_base_class} text-sm bg-blue-50 text-blue-500" }
     # b.use :error, wrap_with: { tag: :span, class: :error }
 
@@ -66,7 +68,7 @@ SimpleForm.setup do |config|
     # If you want to display the full error message for the attribute, you can
     # use the component :full_error, like:
     #
-    b.use :full_error, wrap_with: { tag: :span, class: "#{message_base_class} font-medium bg-red-50 text-red-500" }
+    b.use :full_error, wrap_with: { tag: :span, class: error_message_class }
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -90,7 +92,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = :nil
+  config.error_notification_class = error_message_class
 
   # Series of attempts to detect a default label method for collection.
   # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]
@@ -119,7 +121,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
-  # config.default_form_class = nil
+  config.default_form_class = "flex flex-col gap-default my-default"
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]

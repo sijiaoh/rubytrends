@@ -1,5 +1,8 @@
-<%= simple_form_for user do |form| %>
-  <%= form.input :terms_of_service, as: :boolean, wrapper_html: { class: "my-default" } %>
+<%= simple_form_for user do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= form.button :submit, class: "my-default" %>
+  <%= f.input :terms_of_service, as: :boolean %>
+
+  <%= f.button :submit %>
 <% end %>

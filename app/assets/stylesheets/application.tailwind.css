@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 @layer components {
+  .gap-default {
+    @apply gap-5;
+  }
   .my-default {
     @apply my-5;
   }
