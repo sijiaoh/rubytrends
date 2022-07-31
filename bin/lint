@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eu
+
+while (( $# > 0 )); do
+  case $1 in
+    -a | --autocorrect)
+      AUTOCORRECT=true
+      ;;
+    --quiet)
+      QUIET=true
+      ;;
+  esac
+  shift
+done
+
+bundle exec rubocop ${QUIET:+--format quiet} ${AUTOCORRECT:+--autocorrect}
+bundle exec erblint . ${AUTOCORRECT:+--autocorrect}

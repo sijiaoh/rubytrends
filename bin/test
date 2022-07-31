@@ -8,8 +8,7 @@ set -eu
 # https://github.com/rails/tailwindcss-rails/issues/153
 ./bin/rails tailwindcss:build
 
-bundle exec rubocop --format quiet
-bundle exec erblint .
+./bin/lint --quiet
 bundle exec rails_best_practices --silent .
 bundle exec annotate --models --frozen
 # TODO: Ruby 3.1 syntax error.
