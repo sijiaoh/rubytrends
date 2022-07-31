@@ -55,6 +55,8 @@ gem "rolify"
 
 gem "enumerize"
 
+gem "simple_form"
+
 gem "kaminari"
 gem "kaminari-i18n"
 gem "meta-tags"

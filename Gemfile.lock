@@ -339,6 +339,9 @@ GEM
     sexp_processor (4.16.1)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     smart_properties (1.17.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -422,6 +425,7 @@ DEPENDENCIES
   rubocop-rspec
   selenium-webdriver
   shoulda-matchers
+  simple_form
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
