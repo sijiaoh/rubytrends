@@ -1,5 +1,5 @@
 <div>
-  <div class="flex justify-between items-center">
+  <div class="horizontal-center justify-between">
     <%%= h1 t(".title"), class: "my-default" %>
     <%%= render "new_link" %>
   </div>

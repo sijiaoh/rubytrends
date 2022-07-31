@@ -3,7 +3,7 @@
 
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
 <% unless attribute.attachments? -%>
-  <div class="horizontal my-default">
+  <div class="horizontal-center gap-2 my-default">
 <% else -%>
   <div class="my-default">
 <% end -%>

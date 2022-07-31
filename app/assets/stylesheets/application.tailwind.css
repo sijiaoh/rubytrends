@@ -13,18 +13,24 @@
   }
 
   .vertical {
-    @apply flex flex-col gap-1;
+    @apply flex flex-col;
+  }
+  .vertical-center {
+    @apply vertical items-center;
   }
   .horizontal {
-    @apply flex items-center gap-1;
+    @apply flex;
+  }
+  .horizontal-center {
+    @apply horizontal items-center;
   }
 
   .scaffold-buttons {
-    @apply horizontal gap-3;
+    @apply horizontal-center gap-3;
   }
 
   .pagination {
-    @apply flex justify-center gap-1 my-default text-lg whitespace-nowrap;
+    @apply horizontal justify-center gap-1 my-default text-lg whitespace-nowrap;
   }
   .pagination > .page {
     @apply hidden sm:block;

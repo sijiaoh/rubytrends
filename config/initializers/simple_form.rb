@@ -21,7 +21,7 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, class: "flex flex-col gap-2" do |b|
+  config.wrappers :default, class: "vertical gap-2" do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
@@ -121,7 +121,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
-  config.default_form_class = "flex flex-col gap-default my-default"
+  config.default_form_class = "vertical gap-default my-default"
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
@@ -168,7 +168,7 @@ SimpleForm.setup do |config|
   # config.input_class = nil
 
   # Define the default class of the input wrapper of the boolean input.
-  config.boolean_label_class = "flex items-center gap-2"
+  config.boolean_label_class = "horizontal-center gap-2"
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.
