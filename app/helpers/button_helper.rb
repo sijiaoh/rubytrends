@@ -3,16 +3,17 @@ module ButtonHelper
     "block w-fit font-medium py-2 px-4 rounded"
   end
 
+  # Do not use `class_names` in style helpers. Because it will be used in config/initializers/simple_form.rb.
   def button_primary_style
-    class_names button_base_style, "text-white bg-primary-500 hover:bg-primary-600"
+    "#{button_base_style} text-white bg-primary-500 hover:bg-primary-600"
   end
 
   def button_secondary_style
-    class_names button_base_style, "text-white bg-secondary-500 hover:bg-secondary-600"
+    "#{button_base_style} text-white bg-secondary-500 hover:bg-secondary-600"
   end
 
   def button_danger_style
-    class_names button_base_style, "text-white bg-danger-500 hover:bg-danger-600"
+    "#{button_base_style} text-white bg-danger-500 hover:bg-danger-600"
   end
 
   %i[base primary secondary danger].each do |color|

@@ -1,12 +1,5 @@
-<%= form_with(model: user, class: "contents") do |form| %>
-  <%= render "shared/form_errors", messages: user.errors.full_messages %>
+<%= custom_form_for user do |form| %>
+  <%= form.input :terms_of_service, as: :boolean, wrapper_html: { class: "my-default" } %>
 
-  <div class="horizontal my-default">
-    <%= form.check_box :terms_of_service %>
-    <%= form.label :terms_of_service, User.human_attribute_name(:terms_of_service) %>
-  </div>
-
-  <div>
-    <%= form.submit class: class_names(button_primary_style, "my-default") %>
-  </div>
+  <%= form.button :submit, class: "my-default" %>
 <% end %>
