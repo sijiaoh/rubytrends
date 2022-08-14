@@ -16,6 +16,7 @@ default: &default
   username: root
   password: password
   host: <%= Utils.env_or_credential "ellie_database_host", "127.0.0.1" %>
+  port: <%= Utils.env_or_credential "ellie_database_port", "3306" %>
 
 development:
   <<: *default
