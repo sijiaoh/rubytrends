@@ -12,7 +12,7 @@
 #
 require "rails_helper"
 
-RSpec.describe SocialProfile, type: :model do
+describe SocialProfile do
   describe "associations" do
     it { is_expected.to belong_to(:user) }
   end

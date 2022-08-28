@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Posts", type: :system do
+describe "Posts" do
   let(:post) { build :post, user: current_user }
 
   def to_label(attribute)

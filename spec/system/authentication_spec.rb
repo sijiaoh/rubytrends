@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "authentication", type: :system do
+describe "authentication" do
   describe "sign up" do
     it "creates new user and signs in" do
       visit "/"
