@@ -5,9 +5,9 @@ ruby "3.1.2"
 
 gem "bootsnap", require: false
 gem "importmap-rails"
-gem "mysql2", "~> 0.5"
-gem "puma", "~> 5.6"
-gem "rails", "~> 7.0.3"
+gem "mysql2"
+gem "puma"
+gem "rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"

@@ -403,12 +403,12 @@ DEPENDENCIES
   kaminari
   kaminari-i18n
   meta-tags
-  mysql2 (~> 0.5)
+  mysql2
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  puma (~> 5.6)
+  puma
   pundit
-  rails (~> 7.0.3)
+  rails
   rails-i18n
   rails_best_practices
   rolify
