@@ -2,7 +2,7 @@
 
 set -eu
 
-COMPOSE_FILE=./config/docker/ellie_test/docker-compose.yml
+COMPOSE_FILE=./config/docker/rubytrends_test/docker-compose.yml
 
 docker-compose --file=${COMPOSE_FILE} build
 docker-compose --file=${COMPOSE_FILE} run --rm app

@@ -15,7 +15,7 @@ services:
     image: rubytrends_production
     build:
       context: ../../..
-      dockerfile: ./config/docker/ellie_production/Dockerfile
+      dockerfile: ./config/docker/rubytrends_production/Dockerfile
       args:
         - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
         - RUBYTRENDS_DATABASE_PASSWORD=${RUBYTRENDS_DATABASE_PASSWORD}
