@@ -25,13 +25,12 @@ gem "omniauth-rails_csrf_protection"
 gem "pundit"
 gem "rolify"
 
-gem "enumerize"
-
-gem "simple_form"
-
 gem "kaminari"
 gem "kaminari-i18n"
+
+gem "enumerize"
 gem "meta-tags"
+gem "simple_form"
 
 gem "activerecord-import"
 

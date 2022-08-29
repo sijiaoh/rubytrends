@@ -17,21 +17,31 @@ module ButtonHelper
   end
 
   %i[base primary secondary danger].each do |color|
-    define_method "button_#{color}" do |*args, **options, &block|
-      klass = class_names public_send("button_#{color}_style"), options[:class]
-      button_or_link_to(*args, **options, class: klass, &block)
+    define_method "button_#{color}" do |*args, &block|
+      type = args.last[:type] if args.last.is_a? Hash
+
+      # Fill with nil until the length is at least 3.
+      args.fill(nil, args.size, 3 - args.size)
+
+      args[-1] ||= {}
+      klass = class_names public_send("button_#{color}_style"), args[-1][:class]
+      args[-1][:class] = klass
+
+      args[-1][:type] = type
+
+      button_or_link_to(*args, &block)
     end
 
-    define_method "link_#{color}" do |*args, **options, &block|
-      public_send("button_#{color}", *args, **options, type: :link, &block)
+    define_method "link_#{color}" do |*args, &block|
+      public_send("button_#{color}", *args, type: :link, &block)
     end
   end
 
   private
 
-  def button_or_link_to(*args, **options, &)
-    return link_to(*args, **options, &) if options[:type] == :link
+  def button_or_link_to(*args, &)
+    return link_to(*args, &) if args.last[:type] == :link
 
-    button_to(*args, **options, &)
+    button_to(*args, &)
   end
 end
