@@ -7,17 +7,16 @@
     <div class="mb-8">
       <div
         data-controller="compare--chart-period-select"
-        data-compare--chart-period-select-path-value="<%= chart_path @chart_view.query, ":period" %>"
-      >
+        data-compare--chart-period-select-path-value="<%= chart_path @chart_view.query, ":period" %>">
         <%= select_tag(
-          "period",
-          options_for_select(
-            ChartView::PERIODS.map{ |period| [t(".#{period}"), period] },
-            ChartView::DEFAULT_PERIOD
-          ),
-          "data-compare--chart-period-select-target": "select",
-          "data-action": "compare--chart-period-select#change"
-        ) %>
+              "period",
+              options_for_select(
+                ChartView::PERIODS.map { |period| [t(".#{period}"), period] },
+                ChartView::DEFAULT_PERIOD
+              ),
+              "data-compare--chart-period-select-target": "select",
+              "data-action": "compare--chart-period-select#change"
+            ) %>
       </div>
     </div>
 

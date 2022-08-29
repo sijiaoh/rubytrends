@@ -1,14 +1,14 @@
 class ChartView
   DEFAULT_PERIOD = :one_year
 
-  PERIODS = [
-    :one_month,
-    :three_months,
-    :six_months,
-    :one_year,
-    :two_years,
-    :five_years,
-    :all_time
+  PERIODS = %i[
+    one_month
+    three_months
+    six_months
+    one_year
+    two_years
+    five_years
+    all_time
   ].freeze
 
   def self.period_to_date(period) # rubocop:disable Metrics/MethodLength

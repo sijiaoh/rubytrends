@@ -2,15 +2,13 @@
   class="flex flex-col items-center"
   data-controller="search"
   data-action="search#submit"
-  data-search-path-value="<%= compare_path query: "" %>"
->
+  data-search-path-value="<%= compare_path query: "" %>">
   <input
     class="w-full"
     data-search-target="input"
     type="text"
     value="<%= gemnames.join " " %>"
-    placeholder="Gem names separated by space."
-  >
+    placeholder="Gem names separated by space.">
   <div class="mt-6">
     <button class="button-primary">
       <%= t ".search" %>
