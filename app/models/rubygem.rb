@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: rubygems
+#
+#  id              :bigint           not null, primary key
+#  name            :string(255)      not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  last_fetch_date :date
+#
 class Rubygem < ApplicationRecord
   has_many :daily_summaries, dependent: :destroy
   validates :name, format: { with: /\A[a-z0-9\-_]+\z/ }

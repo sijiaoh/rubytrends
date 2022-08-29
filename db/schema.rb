@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_045358) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_01_08_045358) do
   create_table "daily_summaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "total_downloads", null: false
     t.bigint "daily_downloads", null: false
     t.date "date", null: false
     t.bigint "rubygem_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["rubygem_id", "date"], name: "index_daily_summaries_on_rubygem_id_and_date", unique: true
     t.index ["rubygem_id"], name: "index_daily_summaries_on_rubygem_id"
   end
@@ -33,8 +32,8 @@ ActiveRecord::Schema.define(version: 2022_01_08_045358) do
 
   create_table "rubygems", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.date "last_fetch_date"
     t.index ["name"], name: "index_rubygems_on_name", unique: true
   end

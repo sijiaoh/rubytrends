@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: rubygems
+#
+#  id              :bigint           not null, primary key
+#  name            :string(255)      not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  last_fetch_date :date
+#
 require "rails_helper"
 
 RSpec.describe Rubygem, type: :model do

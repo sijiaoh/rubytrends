@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: daily_summaries
+#
+#  id              :bigint           not null, primary key
+#  total_downloads :bigint           not null
+#  daily_downloads :bigint           not null
+#  date            :date             not null
+#  rubygem_id      :bigint           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class DailySummary < ApplicationRecord
   class << self
     def build_from_source_data(source_data, existing_last_summary, rubygem)
