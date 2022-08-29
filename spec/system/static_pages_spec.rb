@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "static pages", type: :system do
+describe "static pages" do
   describe "home" do
     let(:path) { root_path }
 

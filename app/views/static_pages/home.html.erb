@@ -1,4 +1,4 @@
-<div class="wrapper">
-  <h1 class="title my-default"><%= t "title" %></h1>
+<div>
+  <%= h1 t("title"), title: false, class: "my-default" %>
   <%= render "shared/search", gemnames: [] %>
 </div>

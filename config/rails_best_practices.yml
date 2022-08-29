@@ -24,8 +24,22 @@ RemoveEmptyHelpersCheck: {}
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: {}
 RemoveUnusedMethodsInControllersCheck:
-  { except_methods: ["ApplicationController#render_not_found"] }
-RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
+  {
+    except_methods:
+      [
+        "ApplicationController#render_forbidden",
+        "ApplicationController#render_not_found",
+      ],
+  }
+RemoveUnusedMethodsInHelpersCheck:
+  {
+    except_methods:
+      [
+        "ButtonHelper#button_primary_style",
+        "ButtonHelper#button_secondary_style",
+        "ButtonHelper#button_danger_style",
+      ],
+  }
 RemoveUnusedMethodsInModelsCheck:
   {
     except_methods: ["Rubygem#fetch_if_need!", "Rubygem#weekly_downloads_data"],

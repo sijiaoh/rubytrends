@@ -1,0 +1,3 @@
+<% if policy(:post).index? %>
+  <%= link_primary t("posts.index.title"), posts_path %>
+<% end %>

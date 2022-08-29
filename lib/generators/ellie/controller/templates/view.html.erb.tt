@@ -1,0 +1,4 @@
+<div>
+  <%%= h1 t(".title"), class: "my-default" %>
+  <p>Find me in <%= @path %></p>
+</div>

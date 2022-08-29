@@ -3,14 +3,17 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: [
+    "./public/*.html",
+    "./config/initializers/simple_form.rb",
+    "./app/inputs/**/*.rb",
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
-    "./app/views/**/*",
+    "./app/views/**/*.{erb,haml,html,slim}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        sans: ["Noto Sans JP", "Inter var", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: colors.rose,

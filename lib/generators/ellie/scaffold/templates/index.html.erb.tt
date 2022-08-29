@@ -1,0 +1,10 @@
+<div>
+  <div class="horizontal-center justify-between">
+    <%%= h1 t(".title"), class: "my-default" %>
+    <%%= render "new_link" %>
+  </div>
+
+  <%%= render partial: "index_<%= singular_table_name %>", collection: @<%= plural_table_name %>, as: :<%= singular_table_name %> %>
+
+  <%%= paginate @<%= plural_table_name %> %>
+</div>

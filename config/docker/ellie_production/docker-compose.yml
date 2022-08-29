@@ -1,0 +1,36 @@
+version: "3"
+services:
+  db:
+    container_name: rubytrends_production_db
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: rubytrends_production
+      MYSQL_USER: rubytrends
+      MYSQL_PASSWORD: ${RUBYTRENDS_DATABASE_PASSWORD}
+    volumes:
+      - rubytrends_production_db_data:/var/lib/mysql
+  app:
+    container_name: rubytrends_production
+    image: rubytrends_production
+    build:
+      context: ../../..
+      dockerfile: ./config/docker/ellie_production/Dockerfile
+      args:
+        - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+        - RUBYTRENDS_DATABASE_PASSWORD=${RUBYTRENDS_DATABASE_PASSWORD}
+    environment:
+      RAILS_ENV: production
+      RAILS_SERVE_STATIC_FILES: "true"
+      RUBYTRENDS_DATABASE_HOST: db
+      RUBYTRENDS_DATABASE_PASSWORD: ${RUBYTRENDS_DATABASE_PASSWORD}
+      GA_MEASUREMENT_ID: ${GA_MEASUREMENT_ID}
+    ports:
+      - ${PORT}:3000
+    volumes:
+      - rubytrends_production_log_data:/app/log
+    depends_on:
+      - db
+volumes:
+  rubytrends_production_log_data:
+  rubytrends_production_db_data:

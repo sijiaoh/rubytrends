@@ -1,47 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Kosugi&family=Noto+Sans+JP&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
+  .gap-default {
+    @apply gap-5;
+  }
   .my-default {
     @apply my-5;
   }
 
-  .button-base {
-    @apply block w-fit font-bold py-2 px-4 rounded;
-  }
-  .button-primary {
-    @apply button-base text-white bg-primary-500 hover:bg-primary-600;
-  }
-  .button-secondary {
-    @apply button-base text-white bg-secondary-500 hover:bg-secondary-600;
-  }
-  .button-danger {
-    @apply button-base text-white bg-danger-500 hover:bg-danger-600;
-  }
-
-  .wrapper {
-    @apply mx-auto px-8 max-w-5xl;
-  }
-  .title {
-    @apply font-bold text-4xl;
-  }
-
   .vertical {
-    @apply flex flex-col gap-1;
+    @apply flex flex-col;
+  }
+  .vertical-center {
+    @apply vertical items-center;
   }
   .horizontal {
-    @apply flex items-center gap-1;
+    @apply flex;
   }
-
-  .text-field {
-    @apply rounded-md border-gray-200;
+  .horizontal-center {
+    @apply horizontal items-center;
   }
 
   .scaffold-buttons {
-    @apply horizontal gap-3;
+    @apply horizontal-center gap-3;
   }
-  .scaffold-errors {
-    @apply bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg;
+
+  .pagination {
+    @apply horizontal justify-center gap-1 my-default text-lg whitespace-nowrap;
+  }
+  .pagination > .page {
+    @apply hidden sm:block;
+  }
+  .pagination-base {
+    @apply px-2 py-1 block;
+  }
+  .pagination > .current {
+    @apply pagination-base font-bold;
+  }
+  .pagination > span > a {
+    @apply pagination-base border;
   }
 }
