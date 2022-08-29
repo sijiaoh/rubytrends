@@ -1,5 +1,5 @@
 <form
-  class="flex flex-col items-center"
+  class="<%= class_names "flex flex-col items-center", local_assigns[:class] %>"
   data-controller="search"
   data-action="search#submit"
   data-search-path-value="<%= compare_path query: "" %>">
@@ -11,8 +11,6 @@
     autocomplete="off"
     data-search-target="input">
   <div class="mt-6">
-    <button class="button-primary">
-      <%= t ".search" %>
-    </button>
+    <%= button_primary t ".search" %>
   </div>
 </form>

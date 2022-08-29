@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <h1 class="title my-default"><%= title @chart_view.gemnames.join(" vs ") %></h1>
+  <%= h1 @chart_view.gemnames.join(" vs "), title: false, class: "my-default" %>
 
   <%= render "shared/search", gemnames: @chart_view.gemnames %>
 
