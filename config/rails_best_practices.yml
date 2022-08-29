@@ -29,6 +29,7 @@ RemoveUnusedMethodsInControllersCheck:
       [
         "ApplicationController#render_forbidden",
         "ApplicationController#render_not_found",
+        "ApplicationController#notice_message",
       ],
   }
 RemoveUnusedMethodsInHelpersCheck:
