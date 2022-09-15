@@ -12,7 +12,7 @@ Bundler.require(*Rails.groups)
 
 require "./lib/utils"
 
-module Ellie
+module RailsTemplate
   class Application < Rails::Application
     config.load_defaults 7.0
 

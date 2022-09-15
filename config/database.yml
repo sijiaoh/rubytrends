@@ -4,19 +4,19 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  host: <%= Utils.env_or_credential "ellie_database_host", "127.0.0.1" %>
-  port: <%= Utils.env_or_credential "ellie_database_port", "3306" %>
+  host: <%= Utils.env_or_credential "rails_template_database_host", "127.0.0.1" %>
+  port: <%= Utils.env_or_credential "rails_template_database_port", "3306" %>
 
 development:
   <<: *default
-  database: ellie_development
+  database: rails_template_development
 
 test:
   <<: *default
-  database: ellie_test
+  database: rails_template_test
 
 production:
   <<: *default
-  database: ellie_production
-  username: ellie
-  password: <%= Utils.env_or_credential "ellie_database_password", ("" unless Rails.env.production?) %>
+  database: rails_template_production
+  username: rails_template
+  password: <%= Utils.env_or_credential "rails_template_database_password", ("" unless Rails.env.production?) %>
