@@ -7,7 +7,7 @@ task :rename_project, [:name] => :environment do |_task, args|
     paths.each do |path|
       next if File.basename(path) == "rename_project.rake"
       next if File.basename(path) == "README.md"
-      next if path.include? "lib/generators/ellie"
+      next if path.include? "lib/generators/rails_template"
 
       file = File.read path
       file.gsub! prev_str, new_str

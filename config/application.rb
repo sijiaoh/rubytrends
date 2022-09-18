@@ -22,7 +22,7 @@ module Rubytrends
     config.i18n.default_locale = :en
 
     config.generators do |g|
-      g.template_engine :ellie
+      g.template_engine :rails_template
 
       g.helper false
       g.jbuilder false

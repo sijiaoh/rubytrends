@@ -1,6 +1,6 @@
 require "rails/generators/erb/scaffold/scaffold_generator"
 
-module Ellie
+module RailsTemplate
   module Generators
     class ScaffoldGenerator < Erb::Generators::ScaffoldGenerator
       source_root File.expand_path("templates", __dir__)
