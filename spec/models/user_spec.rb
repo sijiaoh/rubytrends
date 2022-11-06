@@ -21,13 +21,13 @@ describe User do
 
   describe "#hashid" do
     it "generates after save automatically" do
-      user = create :user
+      user = create(:user)
       expect(user.hashid).to be_truthy
     end
   end
 
   describe "#terms_of_service" do
-    subject(:user) { build :user }
+    subject(:user) { build(:user) }
 
     context "when checked" do
       it "creates user" do

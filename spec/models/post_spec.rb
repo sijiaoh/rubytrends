@@ -24,7 +24,7 @@ describe Post do
 
   it "escapes content before save" do
     content = "<script>alert('hi');</script>"
-    post = create :post, { user: create(:user), content: }
+    post = create(:post, { user: create(:user), content: })
     expect(post.content).to eq "&lt;script&gt;alert('hi');&lt;/script&gt;"
   end
 end
