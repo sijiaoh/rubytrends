@@ -31,5 +31,8 @@ module RailsTemplate
       g.view_specs false
       g.request_specs false
     end
+
+    # wysiwyg or code_editor or nil(textarea).
+    config.post_editor = "wysiwyg"
   end
 end

@@ -1,0 +1,8 @@
+<% unless Rails.env.test? %>
+  <div data-controller="code-editor" class="flex <%= local_assigns[:class_name] %>">
+    <%# Require 1 textarea. %>
+    <%= yield %>
+  </div>
+<% else %>
+  <%= yield %>
+<% end %>

@@ -10,6 +10,7 @@
                                           prism_theme_css
                                         ].to_json %>"
     class="<%= local_assigns[:class_name] %>">
+    <%# Require 1 textarea. %>
     <%= yield %>
   </div>
 <% else %>

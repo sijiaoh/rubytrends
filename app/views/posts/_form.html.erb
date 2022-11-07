@@ -5,7 +5,17 @@
   <%= f.input :title %>
 
   <%= f.label :content %>
-  <%= render "shared/wysiwyg", class_name: "min-h-[30rem]" do %>
+
+  <% case Rails.configuration.post_editor %>
+  <% when "wysiwyg" %>
+    <%= render "shared/wysiwyg", class_name: "min-h-[30rem]" do %>
+      <%= f.text_area :content %>
+    <% end %>
+  <% when "code_editor" %>
+    <%= render "shared/code_editor", class_name: "min-h-[30rem]" do %>
+      <%= f.text_area :content %>
+    <% end %>
+  <% else %>
     <%= f.text_area :content %>
   <% end %>
 
