@@ -17,6 +17,7 @@ RUN bundle config set --local without development \
   && bundle clean --force
 
 COPY . /app/
+RUN bundle exec rails assets:precompile
 
 EXPOSE 3000
 
