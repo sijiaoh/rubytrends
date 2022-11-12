@@ -19,3 +19,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    # Fix Selenium::WebDriver::Error::InvalidSessionIdError: invalid session id.
+    # Default memory limit is 64MB, which is not enough for Chrome.
+    shm_size: 256m
