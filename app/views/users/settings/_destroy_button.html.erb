@@ -1,0 +1,8 @@
+<% if policy(users_setting).destroy? %>
+  <%= button_danger(
+        t("destroy"),
+        users_setting,
+        method: :delete,
+        form: { data: { turbo_confirm: t("destroy_confirm") } }
+      ) %>
+<% end %>

@@ -1,0 +1,10 @@
+<div>
+  <%= h1 t(".title"), class: "my-default" %>
+
+  <div class="scaffold-buttons my-default">
+    <%= render "show_link", users_setting: @users_setting %>
+    <%= render "back_to_index_link" %>
+  </div>
+
+  <%= render "form", users_setting: @users_setting %>
+</div>

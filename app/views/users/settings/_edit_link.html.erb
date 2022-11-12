@@ -1,0 +1,3 @@
+<% if policy(users_setting).edit? %>
+  <%= link_primary t("edit"), [:edit, users_setting] %>
+<% end %>

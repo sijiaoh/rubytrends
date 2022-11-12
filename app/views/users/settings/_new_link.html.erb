@@ -1,0 +1,3 @@
+<% if policy(Users::Setting).new? %>
+  <%= link_primary t("users.settings.new.title"), new_users_setting_path %>
+<% end %>

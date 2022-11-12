@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_01_20_031651) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_090953) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
@@ -61,6 +61,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_20_031651) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  create_table "users_settings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "editor_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_users_settings_on_user_id", unique: true
+  end
+
   add_foreign_key "posts", "users"
   add_foreign_key "social_profiles", "users"
+  add_foreign_key "users_settings", "users"
 end
