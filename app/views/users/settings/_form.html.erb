@@ -1,9 +1,8 @@
-<%= simple_form_for users_setting do |f| %>
+<%= simple_form_for setting, url: user_setting_path(setting.user) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= f.association :user %>
-  <%= f.input :editor_type %>
+  <%= f.input :editor_type, include_blank: false %>
 
   <%= f.button :submit %>
 <% end %>

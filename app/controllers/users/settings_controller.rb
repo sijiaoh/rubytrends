@@ -1,52 +1,30 @@
 module Users
   class SettingsController < ApplicationController
-    before_action :set_users_setting, only: %i[show edit update destroy]
+    skip_after_action :verify_policy_scoped
 
-    def index
-      @users_settings = authorize policy_scope(Users::Setting).page(params[:page])
-    end
+    before_action :set_setting, only: %i[show edit update]
 
     def show; end
 
-    def new
-      @users_setting = authorize Users::Setting.new
-      skip_policy_scope
-    end
-
     def edit; end
 
-    def create
-      @users_setting = authorize Users::Setting.new(users_setting_params)
-      skip_policy_scope
-
-      if @users_setting.save
-        redirect_to @users_setting, notice: notice_message(class_name)
-      else
-        render :new, status: :unprocessable_entity
-      end
-    end
-
     def update
-      if @users_setting.update(users_setting_params)
-        redirect_to @users_setting, notice: notice_message(class_name)
+      if @setting.update(setting_params)
+        redirect_to user_setting_path(@setting.user), notice: notice_message(Setting)
       else
         render :edit, status: :unprocessable_entity
       end
     end
 
-    def destroy
-      @users_setting.destroy
-      redirect_to users_settings_url, notice: notice_message(class_name)
-    end
-
     private
 
-    def set_users_setting
-      @users_setting = authorize policy_scope(Users::Setting).find_by!(hashid: params[:hashid])
+    def set_setting
+      user = User.find_by! hashid: params[:user_hashid]
+      @setting = authorize user.setting
     end
 
-    def users_setting_params
-      params.require(:users_setting).permit(:user_id, :editor_type)
+    def setting_params
+      params.require(:users_setting).permit(:editor_type)
     end
   end
 end
