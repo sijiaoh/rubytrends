@@ -16,6 +16,6 @@ describe Users::Setting do
   describe "associations" do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to validate_uniqueness_of(:user_id) }
-    it { is_expected.to define_enum_for(:editor_type).with_values(textarea: 0, wysiwyg: 1, markdown: 2) }
+    it { is_expected.to enumerize(:editor_type).in(textarea: 0, wysiwyg: 1, markdown: 2).with_default(:textarea) }
   end
 end
