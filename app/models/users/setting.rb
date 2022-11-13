@@ -11,5 +11,8 @@
 module Users
   class Setting < ApplicationRecord
     belongs_to :user
+    validates :user_id, uniqueness: true
+
+    enum :editor_type, { textarea: 0, wysiwyg: 1, markdown: 2 }, default: :textarea
   end
 end
