@@ -117,7 +117,7 @@ GEM
     digest (3.1.0)
     enumerize (2.5.0)
       activesupport (>= 3.2)
-    erb_lint (0.2.0)
+    erb_lint (0.3.1)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
