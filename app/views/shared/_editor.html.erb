@@ -1,8 +1,6 @@
 <% case editor_type.to_sym %>
 <% when :wysiwyg %>
-  <%= render "shared/wysiwyg", class_name: local_assigns[:class_name] do %>
-    <%= yield %>
-  <% end %>
+  <%= f.input attribute_name, as: :wysiwyg, input_html: { class: local_assigns[:class_name] } %>
 <% when :markdown %>
   <%= render "shared/code_editor", class_name: local_assigns[:class_name] do %>
     <%= yield %>
