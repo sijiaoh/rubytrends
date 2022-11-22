@@ -6,16 +6,7 @@
 
   <%= f.label :content %>
 
-  <% case Rails.configuration.post_editor %>
-  <% when "wysiwyg" %>
-    <%= render "shared/wysiwyg", class_name: "min-h-[30rem]" do %>
-      <%= f.text_area :content %>
-    <% end %>
-  <% when "code_editor" %>
-    <%= render "shared/code_editor", class_name: "min-h-[30rem]" do %>
-      <%= f.text_area :content %>
-    <% end %>
-  <% else %>
+  <%= render "shared/editor", editor_type: post.user.setting.editor_type, class_name: "min-h-[30rem]" do %>
     <%= f.text_area :content %>
   <% end %>
 

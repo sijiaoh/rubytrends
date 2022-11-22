@@ -1,0 +1,12 @@
+<% case editor_type.to_sym %>
+<% when :wysiwyg %>
+  <%= render "shared/wysiwyg", class_name: local_assigns[:class_name] do %>
+    <%= yield %>
+  <% end %>
+<% when :markdown %>
+  <%= render "shared/code_editor", class_name: local_assigns[:class_name] do %>
+    <%= yield %>
+  <% end %>
+<% else %>
+  <%= yield %>
+<% end %>
