@@ -20,8 +20,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
 
-  before_save :set_editor_type_from_user
   before_save :escape_content
+  before_create :set_editor_type_from_user
 
   private
 
