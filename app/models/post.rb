@@ -20,9 +20,14 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
 
+  before_save :set_editor_type_from_user
   before_save :escape_content
 
   private
+
+  def set_editor_type_from_user
+    self.editor_type = user.setting.editor_type
+  end
 
   def escape_content
     self.content = Loofah.fragment(content).scrub!(:escape).to_s
