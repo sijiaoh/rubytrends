@@ -4,11 +4,7 @@
 
   <%= f.input :title %>
 
-  <%= f.label :content %>
-
-  <%= render "shared/editor", f:, attribute_name: :content, editor_type: post.user.setting.editor_type, class_name: "min-h-[30rem]" do %>
-    <%= f.text_area :content %>
-  <% end %>
+  <%= f.input :content, as: :editor, editor_type: post.user.setting.editor_type, input_html: { class: "min-h-[30rem]" } %>
 
   <%= f.input :published %>
 

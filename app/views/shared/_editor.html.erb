@@ -1,8 +1,0 @@
-<% case editor_type.to_sym %>
-<% when :wysiwyg %>
-  <%= f.input attribute_name, as: :wysiwyg, input_html: { class: local_assigns[:class_name] } %>
-<% when :markdown %>
-  <%= f.input attribute_name, as: :code_editor, input_html: { class: local_assigns[:class_name] } %>
-<% else %>
-  <%= yield %>
-<% end %>
