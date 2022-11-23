@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def show; end
 
   def new
-    @post = authorize Post.new(user: current_user)
+    @post = authorize Post.new(editor_type: current_user.setting.editor_type)
     skip_policy_scope
   end
 
