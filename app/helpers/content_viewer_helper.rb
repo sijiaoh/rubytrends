@@ -4,7 +4,7 @@ module ContentViewerHelper
     when :wysiwyg
       wysiwyg_viewer content
     when :markdown
-      # TODO: Implement markdown viewer.
+      markdown_viewer content
     else
       content_tag :div, content
     end

@@ -30,3 +30,6 @@ pin "@lezer/html", to: "https://ga.jspm.io/npm:@lezer/html@1.0.1/dist/index.es.j
 pin "@lezer/javascript", to: "https://ga.jspm.io/npm:@lezer/javascript@1.0.2/dist/index.es.js"
 pin "@lezer/lr", to: "https://ga.jspm.io/npm:@lezer/lr@1.2.3/dist/index.js"
 pin "@lezer/markdown", to: "https://ga.jspm.io/npm:@lezer/markdown@1.0.2/dist/index.js"
+
+pin "marked", to: "https://ga.jspm.io/npm:marked@4.2.3/lib/marked.esm.js"
+pin "dompurify", to: "https://ga.jspm.io/npm:dompurify@2.4.1/dist/purify.js"
