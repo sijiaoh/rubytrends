@@ -10,11 +10,9 @@
 #
 module Users
   class Setting < ApplicationRecord
-    extend Enumerize
+    include EditorTypeEnum
 
     belongs_to :user
     validates :user_id, uniqueness: true
-
-    enumerize :editor_type, in: { textarea: 0, wysiwyg: 1, markdown: 2 }, default: :textarea
   end
 end
