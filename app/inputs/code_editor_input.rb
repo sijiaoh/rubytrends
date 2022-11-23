@@ -1,5 +1,5 @@
 class CodeEditorInput < SimpleForm::Inputs::Base
-  def input
+  def input(_wrapper_options)
     return @builder.text_area(attribute_name) if Rails.env.test?
 
     helpers.content_tag(
