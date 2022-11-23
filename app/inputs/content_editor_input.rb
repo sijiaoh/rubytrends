@@ -1,4 +1,4 @@
-class EditorInput < SimpleForm::Inputs::Base
+class ContentEditorInput < SimpleForm::Inputs::Base
   def input(_wrapper_options)
     input_type = case options[:editor_type].to_sym
                  when :wysiwyg

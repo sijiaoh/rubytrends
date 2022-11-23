@@ -3,7 +3,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%= f.input :title %>
-  <%= f.input :content, as: :editor, editor_type: post.editor_type, input_html: { class: "min-h-[30rem]" } %>
+  <%= f.input :content, as: :content_editor, editor_type: post.editor_type, input_html: { class: "min-h-[30rem]" } %>
   <%= f.input :published %>
 
   <%= f.button :submit %>
