@@ -1,6 +1,7 @@
 module WysiwygHelper
   def wysiwyg_class
-    "wysiwyg prose"
+    # Use wysiwyg_style instead of wysiwyg, because wysiwyg is already used in WysiwygInput.
+    "wysiwyg_style prose"
   end
 
   def prism_theme_css

@@ -1,13 +1,13 @@
-.wysiwyg {
+.wysiwyg_style {
   margin: 1rem;
   max-width: none;
   font-family: "Noto Sans JP", sans-serif;
 }
 
-.wysiwyg td {
+.wysiwyg_style td {
   border-width: thin;
 }
 
-.wysiwyg pre * {
+.wysiwyg_style pre * {
   font-family: "Kosugi", sans-serif !important;
 }
