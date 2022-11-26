@@ -6,7 +6,7 @@ module MarkdownHelper
       "data-controller": "markdown-viewer",
       "data-markdown-viewer-content-value": content,
       **options,
-      class: class_names("markdown-viewer", options[:class])
+      class: class_names("markdown-viewer", content_class, options[:class])
     )
   end
 end

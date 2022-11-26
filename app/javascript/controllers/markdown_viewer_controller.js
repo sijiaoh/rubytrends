@@ -7,6 +7,7 @@ export default class extends Controller {
 
   contentValueChanged() {
     this.element.innerHTML = DOMPurify.sanitize(marked(this.contentValue));
+    window.Prism.highlightAllUnder(this.element);
   }
 
   updateContent(text) {
