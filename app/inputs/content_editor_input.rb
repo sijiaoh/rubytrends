@@ -8,7 +8,7 @@ class ContentEditorInput < SimpleForm::Inputs::Base
                  else
                    :text
                  end
-    @builder.input attribute_name, **options, label: false, as: input_type
+    @builder.input attribute_name, **options, label: false, wrapper: false, as: input_type
   end
 
   private
