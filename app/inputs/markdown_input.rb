@@ -5,6 +5,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
     helpers.content_tag(
       :div,
       "data-controller": "markdown-editor",
+      "data-action": "code-editor:update->markdown-editor#updateViewerContent",
       **input_html_options,
       class: helpers.class_names("flex", input_html_options[:class])
     ) do
