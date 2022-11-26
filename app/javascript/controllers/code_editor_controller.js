@@ -45,5 +45,9 @@ export default class extends Controller {
 
   #onUpdate(text) {
     this.textarea.value = text;
+    const updateEvent = new CustomEvent("codeEditorUpdate", {
+      detail: { text },
+    });
+    this.element.dispatchEvent(updateEvent);
   }
 }

@@ -5,7 +5,7 @@ import DOMPurify from "dompurify";
 export default class extends Controller {
   static values = { content: String };
 
-  connect() {
+  contentValueChanged() {
     this.element.innerHTML = DOMPurify.sanitize(marked(this.contentValue));
   }
 }

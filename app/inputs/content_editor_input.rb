@@ -4,7 +4,7 @@ class ContentEditorInput < SimpleForm::Inputs::Base
                  when :wysiwyg
                    :wysiwyg
                  when :markdown
-                   :code_editor
+                   :markdown
                  else
                    :text
                  end
