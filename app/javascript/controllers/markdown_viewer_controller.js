@@ -3,11 +3,14 @@ import { marked } from "marked";
 import DOMPurify from "dompurify";
 
 export default class extends Controller {
+  static targets = ["content"];
   static values = { content: String };
 
   contentValueChanged() {
-    this.element.innerHTML = DOMPurify.sanitize(marked(this.contentValue));
-    window.Prism.highlightAllUnder(this.element);
+    this.contentTarget.innerHTML = DOMPurify.sanitize(
+      marked(this.contentValue)
+    );
+    window.Prism.highlightAllUnder(this.contentTarget);
   }
 
   updateContent(text) {
