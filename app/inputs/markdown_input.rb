@@ -11,7 +11,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
     ) do
       [
         @builder.input(attribute_name, as: :code_editor, label: false, wrapper: false, input_html: { class: "w-1/2" }),
-        helpers.markdown_viewer(object[attribute_name], class: "w-1/2")
+        helpers.markdown_viewer(object[attribute_name], "data-markdown-editor-target": "viewer", class: "w-1/2")
       ].sum
     end
   end

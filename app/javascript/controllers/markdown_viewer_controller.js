@@ -8,4 +8,8 @@ export default class extends Controller {
   contentValueChanged() {
     this.element.innerHTML = DOMPurify.sanitize(marked(this.contentValue));
   }
+
+  updateContent(text) {
+    this.contentValue = text;
+  }
 }
