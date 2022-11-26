@@ -15,21 +15,17 @@
 class Post < ApplicationRecord
   include HashidSluggable
   include EditorTypeEnum
+  include HasContent
 
   belongs_to :user
 
   validates :title, presence: true
 
-  before_save :escape_content
   before_create :set_editor_type_from_user
 
   private
 
   def set_editor_type_from_user
     self.editor_type = user.setting.editor_type
-  end
-
-  def escape_content
-    self.content = Loofah.fragment(content).scrub!(:escape).to_s
   end
 end
