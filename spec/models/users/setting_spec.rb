@@ -16,6 +16,9 @@ describe Users::Setting do
   describe "associations" do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to validate_uniqueness_of(:user_id) }
+  end
+
+  describe "enums" do
     it { is_expected.to have_editor_type_enum }
   end
 end
