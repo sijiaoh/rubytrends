@@ -6,11 +6,11 @@ class WysiwygInput < SimpleForm::Inputs::Base
       :div,
       "data-controller": "wysiwyg",
       "data-wysiwyg-id-value": generate_id,
-      "data-wysiwyg-body-class-value": helpers.wysiwyg_class,
+      "data-wysiwyg-body-class-value": helpers.content_class,
       "data-action": "turbo:before-cache@document->wysiwyg#unmount",
       "data-wysiwyg-content-css-value": [
         helpers.asset_path("tailwind.css"),
-        helpers.asset_path("wysiwyg.css"),
+        helpers.asset_path("content.css"),
         helpers.prism_theme_css
       ].to_json,
       **input_html_options
