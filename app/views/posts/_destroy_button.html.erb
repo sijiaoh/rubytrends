@@ -1,8 +1,0 @@
-<% if policy(post).destroy? %>
-  <%= button_danger(
-        t("destroy"),
-        post,
-        method: :delete,
-        form: { data: { turbo_confirm: t("destroy_confirm") } }
-      ) %>
-<% end %>
