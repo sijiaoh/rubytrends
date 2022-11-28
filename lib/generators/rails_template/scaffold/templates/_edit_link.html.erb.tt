@@ -1,3 +1,0 @@
-<%% if policy(<%= singular_table_name %>).edit? %>
-  <%%= link_primary t("edit"), [:edit, <%= singular_table_name %>] %>
-<%% end %>

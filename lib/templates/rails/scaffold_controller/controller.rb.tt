@@ -20,7 +20,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     skip_policy_scope
 
     if @<%= orm_instance.save %>
-      redirect_to <%= redirect_resource_name %>, notice: notice_message(Post)
+      redirect_to <%= redirect_resource_name %>, notice: notice_message(<%= class_name %>)
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   def update
     if @<%= orm_instance.update("#{singular_table_name}_params") %>
-      redirect_to <%= redirect_resource_name %>, notice: notice_message(Post)
+      redirect_to <%= redirect_resource_name %>, notice: notice_message(<%= class_name %>)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   def destroy
     @<%= orm_instance.destroy %>
-    redirect_to <%= index_helper %>_url, notice: notice_message(Post)
+    redirect_to <%= index_helper %>_url, notice: notice_message(<%= class_name %>)
   end
 
   private

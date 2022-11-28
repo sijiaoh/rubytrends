@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_01_08_045358) do
+ActiveRecord::Schema[7.0].define(version: 2022_01_04_134528) do
   create_table "daily_summaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "total_downloads", null: false
     t.bigint "daily_downloads", null: false

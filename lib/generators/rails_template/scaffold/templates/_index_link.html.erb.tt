@@ -1,3 +1,0 @@
-<%% if policy(<%= class_name %>).index? %>
-  <%%= link_primary t("<%= view_i18n_scope %>.index.title"), <%= plural_route_name %>_path %>
-<%% end %>

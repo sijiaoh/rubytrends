@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require "./config/configure_bullet"
 
 Rails.application.configure do
   config.after_initialize do
@@ -9,6 +10,7 @@ Rails.application.configure do
     Bullet.rails_logger  = true
     Bullet.add_footer    = true
     Bullet.raise         = true
+    configure_bullet
   end
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -60,6 +62,10 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  # For tailwindcss autoreload.
+  # From: https://github.com/rails/tailwindcss-rails/issues/160#issuecomment-1085257215
+  config.assets.debug = true
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

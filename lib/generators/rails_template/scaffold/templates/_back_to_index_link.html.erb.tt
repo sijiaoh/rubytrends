@@ -1,3 +1,0 @@
-<%% if policy(<%= class_name %>).index? %>
-  <%%= link_secondary t("back_to_index"), <%= plural_route_name %>_path %>
-<%% end %>
