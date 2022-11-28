@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "compare", type: :system do
+RSpec.describe "compare" do
   include_context "with mocked Rubygem#fetch_resource_data"
 
   describe "GET /compare/:query" do

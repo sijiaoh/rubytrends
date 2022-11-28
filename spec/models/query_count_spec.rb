@@ -10,7 +10,7 @@
 #
 require "rails_helper"
 
-RSpec.describe QueryCount, type: :model do
+RSpec.describe QueryCount do
   describe ".count_query!" do
     subject(:count_query!) { proc { described_class.count_query! query } }
 

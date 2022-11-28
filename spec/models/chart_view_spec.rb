@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ChartView, type: :model do
+RSpec.describe ChartView do
   subject(:chart_view) { described_class.new raw_query: }
 
   let(:raw_query) { "B_c~a" }

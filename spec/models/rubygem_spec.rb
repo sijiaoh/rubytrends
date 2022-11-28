@@ -10,8 +10,8 @@
 #
 require "rails_helper"
 
-RSpec.describe Rubygem, type: :model do
-  let(:rubygem) { create :rubygem }
+RSpec.describe Rubygem do
+  let(:rubygem) { create(:rubygem) }
 
   include_context "with fake resource data"
 
@@ -21,7 +21,7 @@ RSpec.describe Rubygem, type: :model do
 
       it "creates record" do
         expect do
-          create :rubygem, name:
+          create(:rubygem, name:)
         end.to change(described_class, :count).by 1
       end
     end

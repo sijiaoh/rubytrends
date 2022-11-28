@@ -1,7 +1,7 @@
 shared_context "with mocked Rubygem#fetch_resource_data" do
   include_context "with fake resource data"
 
-  let(:rubygem) { create :rubygem }
+  let(:rubygem) { create(:rubygem) }
 
   before do
     allow(Rubygem).to receive(:new).and_return(rubygem)

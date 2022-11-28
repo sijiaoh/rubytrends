@@ -12,9 +12,9 @@
 #
 require "rails_helper"
 
-RSpec.describe DailySummary, type: :model do
+RSpec.describe DailySummary do
   describe ".build_from_source_data" do
-    let(:rubygem) { create :rubygem }
+    let(:rubygem) { create(:rubygem) }
 
     include_context "with fake resource data"
 
