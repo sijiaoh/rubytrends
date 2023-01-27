@@ -3,7 +3,7 @@ Capybara.javascript_driver = :selenium_chrome_headless_no_sandbox
 Capybara.register_driver :selenium_chrome_headless_no_sandbox do |app|
   version = Capybara::Selenium::Driver.load_selenium
   options_key = Capybara::Selenium::Driver::CAPS_VERSION.satisfied_by?(version) ? :capabilities : :options
-  browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+  browser_options = Selenium::WebDriver::Chrome::Options.new.tap do |opts|
     opts.add_argument("--headless")
     opts.add_argument("--no-sandbox")
     opts.add_argument("--disable-gpu") if Gem.win_platform?
