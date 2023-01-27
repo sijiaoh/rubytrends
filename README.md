@@ -4,7 +4,7 @@
   See `.ruby-version`
 
 - Database creation  
-  `rails db:start` to create mysql in docker.
+  `rails backends:start` to start mysql and other backend services in docker.
 
 - Database initialization  
   `rails db:migrate`
