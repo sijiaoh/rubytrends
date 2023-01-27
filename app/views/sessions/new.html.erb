@@ -6,8 +6,5 @@
   <% end %>
 
   <%# https://github.com/hotwired/turbo/issues/288 %>
-  <%= button_primary t(".with_google"), user_google_oauth2_omniauth_authorize_path, **{
-        class: "my-default",
-        data: { turbo: false }
-      } %>
+  <%= button_primary t(".with_google"), user_google_oauth2_omniauth_authorize_path, class: "my-default", data: { turbo: false } %>
 </div>
