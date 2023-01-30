@@ -35,7 +35,7 @@ export default class extends Controller {
   #setTextarea() {
     const textareas = this.element.getElementsByTagName("textarea");
     if (textareas.length != 1)
-      throw new Error("wysiwyg_controller shuld have 1 textarea");
+      throw new Error("code_editor_controller shuld have 1 textarea");
     this.textarea = textareas[0];
   }
 
